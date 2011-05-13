@@ -15,14 +15,7 @@ body {
 		background:#fff url('../images/everest.jpg') no-repeat right top;
 }
 
-ul
+h2
 {
-	list-style-type: none;
-	padding: 0px;
 	margin: 0px;
-}
-
-#parallax
-{
-	position:absolute; overflow:hidden; width:640px; height:480px;
 }
