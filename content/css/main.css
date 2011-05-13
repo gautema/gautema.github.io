@@ -15,7 +15,12 @@ body {
 		background:#fff url('../images/everest.jpg') no-repeat right top;	
 }
 
-h2
+h3
 {
 	margin: 0px;
+}
+
+#title
+{
+	margin-left: 250px;
 }
