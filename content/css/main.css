@@ -1,4 +1,14 @@
+body {
+	margin:50px 0px; padding:0px;
+	text-align:center;
+	background-color: #eee;
+}
+
 .content
 {
-  text-align:center;  
+		width:640px;
+		height:480px;
+		margin:0px auto;
+		border:1px dashed #333;
+		background:#fff url('../images/everest.jpg') no-repeat right top;
 }
