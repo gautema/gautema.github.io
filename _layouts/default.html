@@ -3,7 +3,13 @@
 	<head>
         <link href="content/css/main.css" media="screen" rel="stylesheet" type="text/css" />
 		<script src="content/js/jquery.js"></script>
-		
+		<script type="text/javascript">
+		$(document).ready(function() 
+		{
+		 	$(".content").css("display", "none");
+		    $(".content").fadeIn(2000);	
+		});
+		</script>
 		<title>{{ page.title }}</title>
 	</head>
 
