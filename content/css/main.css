@@ -7,13 +7,13 @@ body {
 
 .content
 {
-		width:640px;
-		height:480px;
-		border-radius: 25px;
-		margin:0px auto;
-		border:2px solid #333;
-		background:#fff url('../images/everest.jpg') no-repeat right top;
-		text-align:left;
+	width:640px;
+	height:480px;
+	border-radius: 25px;
+	margin:0px auto;
+	border:2px solid #333;
+	background:#fff url('../images/everest.jpg') no-repeat right top;
+	text-align:left;
 }
 
 h3
