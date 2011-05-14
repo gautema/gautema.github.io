@@ -16,6 +16,7 @@ body {
 	z-index: 10
 	position: relative;
 	background:#fff url('../images/everest.jpg') no-repeat right top;
+	cursor: pointer;
 }
 
 #content
