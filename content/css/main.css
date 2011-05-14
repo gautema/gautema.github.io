@@ -12,8 +12,22 @@ body {
 	border-radius: 25px;
 	margin:0px auto;
 	border:2px solid #333;
-	background:#fff url('../images/everest.jpg') no-repeat right top;
 	text-align:left;
+}
+
+.body_color
+{
+	background-color:#496F87;
+}
+
+.content_color
+{
+	background:#fff url('../images/everest.jpg') no-repeat right top;
+}
+
+.content_bw
+{
+	background:#fff url('../images/everest_bw.jpg') no-repeat right top;
 }
 
 h3
