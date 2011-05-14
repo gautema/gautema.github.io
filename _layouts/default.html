@@ -3,38 +3,24 @@
 	<head>
         <link href="content/css/main.css" media="screen" rel="stylesheet" type="text/css" />
 		<script src="content/js/jquery.js"></script>
-		<script type="text/javascript">
-		$(document).ready(function() 
-		{
-		 	$(".content").css("display", "none");
-		    $(".content").fadeIn(2000);	
-		
-			$(".content").mouseover(function(){
-			    	$(this).removeClass("content_color").addClass("content_bw");
-					$('body').addClass("body_color");
-			    }).mouseout(function(){
-			    	$(this).removeClass("content_bw").addClass("content_color");
-					$('body').removeClass("body_color");
-			    });
-		});
-
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-23338739-1']);
-		  _gaq.push(['_trackPageview']);
-
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-
-		</script>
+		<script src="content/js/main.js"></script>
 		<title>{{ page.title }}</title>
 	</head>
 
 	<body>
-		<div class="content content_color">
-    	    <p>{{ content }}</p>   
+		<div class="header header_color">
+    	    <div id="textbox">
+				twitter: <a href="http://twitter.com/gautema">@gautema</a><br />
+				github: <a href="http://github.com/gautema">github.com/gautema</a><br />
+				linkedin: <a href="http://www.linkedin.com/in/gautem">linkedin.com/in/gautem</a><br />
+				msn: <a href="msn:gaute.magnussen@gmail.com">gaute.magnussen@gmail.com</a><br />
+				e-mail: <a href="mailto:gaute@gautema.com">gaute@gautema.com</a><br />
+			</div>   
+		</div>
+		<div id="content">
+			<p>
+				{{content}}	
+			</p>
 		</div>
 		<h3 id="title">{{ page.title }}</h3>
 	</body>

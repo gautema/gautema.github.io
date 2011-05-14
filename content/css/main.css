@@ -5,29 +5,40 @@ body {
 	color: #333;
 }
 
-.content
+.header
 {
 	width:640px;
 	height:480px;
-	border-radius: 25px;
+	border-radius: 15px;
 	margin:0px auto;
 	border:2px solid #333;
 	text-align:left;
+	z-index: 10
+	position: relative;
+	background:#fff url('../images/everest.jpg') no-repeat right top;
+}
+
+#content
+{
+	width:640px;
+	height:20px;
+	opacity: 0;
+	border-radius: 15px;
+	margin:0px auto;
+	margin-top: -20px;
+	border:2px solid #333;
+	text-align:left;
+	z-index:-1;
+	position: relative;
+	background:#333 url('../images/everest_bw.jpg') no-repeat right bottom;
+	color: #fff;
+	text-shadow: #000 1px 1px 1px;
+	text-align:center;
 }
 
 .body_color
 {
 	background-color:#496F87;
-}
-
-.content_color
-{
-	background:#fff url('../images/everest.jpg') no-repeat right top;
-}
-
-.content_bw
-{
-	background:#333 url('../images/everest_bw.jpg') no-repeat right top;
 }
 
 h3
@@ -39,6 +50,11 @@ a
 {
 	color: #015384;
 	text-decoration: none;
+}
+
+p
+{
+	padding: 10px;
 }
 
 #title
