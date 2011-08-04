@@ -1,17 +1,36 @@
 body {
 	margin:50px 0px; padding:0px;
 	background-color: #666;
-	font-family: Helvetica, Arial;
-	color: #333;
+	font-family: Arial, Helvetica;
+	color: #fff;
+	text-shadow: #000 1px 1px 1px;
 }
 
+#title
+{
+	width:640px;
+	margin:10px auto;
+	padding: 20px;
+	text-align:right;
+	background: #333;
+}
+
+#textbox
+{
+	width:640px;
+	height:100px;
+	padding: 20px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	background: #333;
+}
 .header
 {
 	width:640px;
 	height:480px;
-	border-radius: 15px;
 	margin:0px auto;
-	border:2px solid #333;
+	border:20px solid #333;
+	border-bottom: 0;
 	text-align:left;
 	z-index: 10
 	position: relative;
@@ -23,28 +42,25 @@ body {
 {
 	width:640px;
 	height:20px;
-	opacity: 0;
-	border-radius: 15px;
 	margin:0px auto;
-	margin-top: -20px;
-	border:2px solid #333;
+	margin-top: -40px;
+	border:20px solid #333;
 	text-align:left;
 	z-index:-1;
 	position: relative;
 	background:#333 url('../images/everest_bw.jpg') no-repeat right bottom;
-	color: #fff;
-	text-shadow: #000 1px 1px 1px;
 	text-align:center;
+	margin-bottom: 10px;
+}
+
+#content_text
+{
+	opacity: 0;
 }
 
 .body_color
 {
 	background-color:#496F87;
-}
-
-h3
-{
-	margin: 0px;
 }
 
 a
@@ -58,14 +74,5 @@ p
 	padding: 10px;
 }
 
-#title
-{
-	text-align:center;
-	margin-left: 250px;
-}
 
-#textbox
-{
-	padding: 20px 0 0 50px;
-	width:300px;
-}
+

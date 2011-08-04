@@ -7,8 +7,10 @@ $(document).ready(function()
 				height:"440px"
 			});
 			$("#content").animate({
-				height:"58",
-				opacity: 1
+				height:"58"
+			});
+			$("#content_text").animate({
+				opacity:"1"
 			});
 		}
 		else
@@ -17,8 +19,10 @@ $(document).ready(function()
 				height:"480"
 			});
 			$("#content").animate({
-				height:"20",
-				opacity: 0
+				height:"20"
+			});
+			$("#content_text").animate({
+				opacity:"0"
 			});
 		}
 		
