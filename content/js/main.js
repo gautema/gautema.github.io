@@ -7,7 +7,7 @@ $(document).ready(function()
 				height:"440px"
 			});
 			$("#content").animate({
-				height:"58"
+				height:"60"
 			});
 			$("#content_text").animate({
 				opacity:"1"
