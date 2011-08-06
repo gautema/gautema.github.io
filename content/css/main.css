@@ -1,5 +1,6 @@
 body {
-	margin:10px 0px; padding:0px;
+	margin:10px 0px; 
+	padding:0px;
 	background-color: #666;
 	font-family: Arial, Helvetica;
 	color: #fff;
@@ -15,7 +16,7 @@ body {
 	background: #333;
 }
 
-#textbox
+#linkbox
 {
 	width:640px;
 	padding: 20px;
@@ -23,15 +24,12 @@ body {
 	margin-bottom: 10px;
 	background: #333;
 }
+
 .header
 {
-	width:640px;
 	height:480px;
-	margin:0px auto;
-	border:20px solid #333;
-	border-bottom: 0;
 	text-align:left;
-	z-index: 10
+	z-index: 10;
 	position: relative;
 	background:#fff url('../images/everest.jpg') no-repeat right top;
 	cursor: pointer;
@@ -40,20 +38,25 @@ body {
 #content
 {
 	width:640px;
-	height:20px;
 	margin:0px auto;
-	margin-top: -40px;
 	border:20px solid #333;
+	margin-bottom: 10px;
+}
+
+#text_frame
+{
+	height:0px;
 	text-align:left;
 	z-index:-1;
 	position: relative;
 	background:#333 url('../images/everest_bw.jpg') no-repeat right bottom;
-	text-align:center;
-	margin-bottom: 10px;
 }
 
-#content_text
+#text
 {
+	width:640px;
+	position: absolute;
+	text-align:center;
 	opacity: 0;
 }
 

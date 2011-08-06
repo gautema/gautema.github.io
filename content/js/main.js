@@ -4,12 +4,12 @@ $(document).ready(function()
 		if($(this).height() == 480)
 		{
 			$(this).animate({
-				height:"440px"
+				height:"420px"
 			});
-			$("#content").animate({
+			$("#text_frame").animate({
 				height:"60"
 			});
-			$("#content_text").animate({
+			$("#text").animate({
 				opacity:"1"
 			});
 		}
@@ -18,10 +18,10 @@ $(document).ready(function()
 			$(this).animate({
 				height:"480"
 			});
-			$("#content").animate({
-				height:"20"
+			$("#text_frame").animate({
+				height:"0"
 			});
-			$("#content_text").animate({
+			$("#text").animate({
 				opacity:"0"
 			});
 		}
