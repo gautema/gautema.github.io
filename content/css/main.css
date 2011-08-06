@@ -3,6 +3,7 @@ body {
 	padding:0px;
 	background-color: #666;
 	background:#666 url('../images/bg.jpg') no-repeat right top;
+	background-size: cover;
 	font-family: Arial, Helvetica;
 	color: #fff;
 	text-shadow: #000 1px 1px 1px;
@@ -61,11 +62,6 @@ body {
 	opacity: 0;
 }
 
-.body_color
-{
-	background-color:#496F87;
-}
-
 a
 {
 	color: #015384;
@@ -76,6 +72,5 @@ p
 {
 	padding: 10px;
 }
-
 
 
