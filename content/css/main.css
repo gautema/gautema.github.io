@@ -2,13 +2,18 @@
 	    margin:10px 0px; 
 	    padding:0px;
 	    background-color: #666;
-	    background:#666 url('../images/bg.jpg') no-repeat right top;
+
 	    background-size: cover;
 	    font-family: Helvetica, Arial;
 	    color: #fff;
 	    text-shadow: #000 1px 1px 1px;
     }
-
+	@media screen and (min-width: 1024px)
+	{
+	    body {
+	        background:#666 url('../images/bg.jpg') no-repeat right top;
+	    }
+    }
     #title
     {
 	    width:640px;
