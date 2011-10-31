@@ -1,9 +1,8 @@
+
     body {
 	    margin:10px 0px; 
 	    padding:0px;
 	    background-color: #666;
-	    background:#666 url('../images/bg.jpg') no-repeat right top;
-	    background-size: cover;
 	    font-family: Helvetica, Arial;
 	    color: #fff;
 	    text-shadow: #000 1px 1px 1px;
@@ -11,7 +10,7 @@
 
     #title
     {
-	    width:640px;
+	    width:320px;
 	    margin:10px auto;
 	    padding: 20px;
 	    text-align:right;
@@ -20,7 +19,7 @@
 
     #linkbox
     {
-	    width:640px;
+	    width:320px;
 	    padding: 20px;
 	    margin: 0 auto;
 	    margin-bottom: 10px;
@@ -29,16 +28,16 @@
 
     .header
     {
-	    height:480px;
+	    height:240px;
 	    text-align:left;
 	    position: relative;
-	    background:#fff url('../images/everest.jpg') no-repeat right top;
+	    background:#fff url('../images/everest320.jpg') no-repeat right top;
 	    cursor: pointer;
     }
 
     #content
     {
-	    width:640px;
+	    width:320px;
 	    margin:0px auto;
 	    padding: 20px;
 	    margin-bottom: 10px;
@@ -51,12 +50,12 @@
 	    height:0px;
 	    text-align:left;
 	    position: relative;
-	    background:#fff url('../images/everest_bw.jpg') no-repeat right bottom;
+	    background:#fff url('../images/everest_bw320.jpg') no-repeat right bottom;
     }
 
     #text
     {
-	    width:640px;
+	    width:320px;
 	    position: absolute;
 	    text-align:center;
 	    opacity: 0;
@@ -66,9 +65,4 @@
     {
 	    color: #015384;
 	    text-decoration: none;
-    }
-
-    p
-    {
-	    padding: 10px;
     }
