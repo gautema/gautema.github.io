@@ -64,8 +64,10 @@ $(document).ready(function () {
             compareWidth = detector.width();
 
             if (compareWidth >= 480) {
+                alert():
                 js();
             } else {
+                alert();
                 jssmall();
             }
         }
