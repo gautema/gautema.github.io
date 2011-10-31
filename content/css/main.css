@@ -79,7 +79,7 @@
     }
 
 }
-@media screen and (max-width: 680px) 
+@media screen and (max-width: 679px) 
 {
     body {
 	    margin:10px 0px; 
@@ -110,7 +110,7 @@
 
     .header
     {
-	    height:480px;
+	    height:240px;
 	    text-align:left;
 	    position: relative;
 	    background:#fff url('../images/everest320.jpg') no-repeat right top;
