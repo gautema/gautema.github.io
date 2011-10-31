@@ -1,76 +1,156 @@
-body {
-	margin:10px 0px; 
-	padding:0px;
-	background-color: #666;
-	background:#666 url('../images/bg.jpg') no-repeat right top;
-	background-size: cover;
-	font-family: Helvetica, Arial;
-	color: #fff;
-	text-shadow: #000 1px 1px 1px;
+#changeTarget{
+    width: 480px;
 }
 
-#title
+@media screen and (min-width: 480px) {
+    body {
+	    margin:10px 0px; 
+	    padding:0px;
+	    background-color: #666;
+	    background:#666 url('../images/bg.jpg') no-repeat right top;
+	    background-size: cover;
+	    font-family: Helvetica, Arial;
+	    color: #fff;
+	    text-shadow: #000 1px 1px 1px;
+    }
+
+    #title
+    {
+	    width:640px;
+	    margin:10px auto;
+	    padding: 20px;
+	    text-align:right;
+	    background: url('../images/pix.png') repeat right top;
+    }
+
+    #linkbox
+    {
+	    width:640px;
+	    padding: 20px;
+	    margin: 0 auto;
+	    margin-bottom: 10px;
+	    background: url('../images/pix.png') repeat right top;
+    }
+
+    .header
+    {
+	    height:480px;
+	    text-align:left;
+	    position: relative;
+	    background:#fff url('../images/everest.jpg') no-repeat right top;
+	    cursor: pointer;
+    }
+
+    #content
+    {
+	    width:640px;
+	    margin:0px auto;
+	    padding: 20px;
+	    margin-bottom: 10px;
+
+	    background: url('../images/pix.png') repeat right top;
+    }
+
+    #text_frame
+    {
+	    height:0px;
+	    text-align:left;
+	    position: relative;
+	    background:#fff url('../images/everest_bw.jpg') no-repeat right bottom;
+    }
+
+    #text
+    {
+	    width:640px;
+	    position: absolute;
+	    text-align:center;
+	    opacity: 0;
+    }
+
+    a
+    {
+	    color: #015384;
+	    text-decoration: none;
+    }
+
+    p
+    {
+	    padding: 10px;
+    }
+
+}
+@media screen and (max-width: 480px) 
 {
-	width:640px;
-	margin:10px auto;
-	padding: 20px;
-	text-align:right;
-	background: url('../images/pix.png') repeat right top;
+    body {
+	    margin:10px 0px; 
+	    padding:0px;
+	    background-color: #666;
+	    font-family: Helvetica, Arial;
+	    color: #fff;
+	    text-shadow: #000 1px 1px 1px;
+    }
+
+    #title
+    {
+	    width:320px;
+	    margin:10px auto;
+	    padding: 20px;
+	    text-align:right;
+	    background: url('../images/pix.png') repeat right top;
+    }
+
+    #linkbox
+    {
+	    width:320px;
+	    padding: 20px;
+	    margin: 0 auto;
+	    margin-bottom: 10px;
+	    background: url('../images/pix.png') repeat right top;
+    }
+
+    .header
+    {
+	    height:480px;
+	    text-align:left;
+	    position: relative;
+	    background:#fff url('../images/everest320.jpg') no-repeat right top;
+	    cursor: pointer;
+    }
+
+    #content
+    {
+	    width:320px;
+	    margin:0px auto;
+	    padding: 20px;
+	    margin-bottom: 10px;
+
+	    background: url('../images/pix.png') repeat right top;
+    }
+
+    #text_frame
+    {
+	    height:0px;
+	    text-align:left;
+	    position: relative;
+	    background:#fff url('../images/everest_bw320.jpg') no-repeat right bottom;
+    }
+
+    #text
+    {
+	    width:320px;
+	    position: absolute;
+	    text-align:center;
+	    opacity: 0;
+    }
+
+    a
+    {
+	    color: #015384;
+	    text-decoration: none;
+    }
+
+    p
+    {
+	    padding: 10px;
+    }
 }
-
-#linkbox
-{
-	width:640px;
-	padding: 20px;
-	margin: 0 auto;
-	margin-bottom: 10px;
-	background: url('../images/pix.png') repeat right top;
-}
-
-.header
-{
-	height:480px;
-	text-align:left;
-	position: relative;
-	background:#fff url('../images/everest.jpg') no-repeat right top;
-	cursor: pointer;
-}
-
-#content
-{
-	width:640px;
-	margin:0px auto;
-	padding: 20px;
-	margin-bottom: 10px;
-
-	background: url('../images/pix.png') repeat right top;
-}
-
-#text_frame
-{
-	height:0px;
-	text-align:left;
-	position: relative;
-	background:#fff url('../images/everest_bw.jpg') no-repeat right bottom;
-}
-
-#text
-{
-	width:640px;
-	position: absolute;
-	text-align:center;
-	opacity: 0;
-}
-
-a
-{
-	color: #015384;
-	text-decoration: none;
-}
-
-p
-{
-	padding: 10px;
-}
-
-
