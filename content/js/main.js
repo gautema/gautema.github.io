@@ -1,7 +1,16 @@
-var js = $(".header").click(function () {
-        if ($(this).height() == 480) {
+$(document).ready(function () {
+    $(".header").click(function () {
+        var height, width;
+        if (window.innerWidth >= 680) {
+            height = 480;
+            width = 640;
+        } else {
+            height = 240;
+            width = 320;
+        }
+        if ($(this).height() == height) {
             $(this).animate({
-                height: "420px"
+                height: (height - 60) + "px"
             });
             $("#text_frame").animate({
                 height: "60"
@@ -12,7 +21,7 @@ var js = $(".header").click(function () {
         }
         else {
             $(this).animate({
-                height: "480"
+                height: (height) + "px"
             });
             $("#text_frame").animate({
                 height: "0"
@@ -22,54 +31,5 @@ var js = $(".header").click(function () {
             });
         }
 
-    });
-
-var jsSmall = 	$(".header").click(function(){
-		if($(this).height() == 240)
-		{
-			$(this).animate({
-				height:"180px"
-			});
-			$("#text_frame").animate({
-				height:"60"
-			});
-			$("#text").animate({
-				opacity:"1"
-			});
-		}
-		else
-		{
-			$(this).animate({
-				height:"240"
-			});
-			$("#text_frame").animate({
-				height:"0"
-			});
-			$("#text").animate({
-				opacity:"0"
-			});
-		}
-
-});
-
-var compareWidth;
-var detector;
-
-$(document).ready(function () {
-    detector = jQuery('#changeTarget');
-    compareWidth = detector.width();
-
-    $(window).resize(function () {
-        if (detector.width() != compareWidth) {
-            compareWidth = detector.width();
-
-            if (compareWidth >= 480) {
-                alert():
-                js();
-            } else {
-                alert();
-                jssmall();
-            }
-        }
     });
 });

@@ -1,7 +1,3 @@
-#changeTarget{
-    width: 480px;
-}
-
 @media screen and (min-width: 680px) {
     body {
 	    margin:10px 0px; 
