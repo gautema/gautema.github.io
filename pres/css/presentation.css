@@ -1,0 +1,17 @@
+.slides.template-mariekj > article:not(.nobackground) {
+        /*background: url(../images/SP2010logo.jpg) bottom right no-repeat;*/
+        background-color: #E0E4CC;  
+		padding-top:50px;
+		font-family:Impact, Arial;
+		
+      }
+
+	p + iframe {
+	  margin-top: 40px;
+	}
+
+.slides.template-mariekj .source{ left: 200px;}
+
+.slides.layout-faux-widescreen > article{
+	padding-left:80px;
+}
