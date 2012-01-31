@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Presentation</title>
+    <meta charset='utf-8'>
+    <script src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>
+ 	<link href="css/presentation.css" media="screen" rel="stylesheet" type="text/css" />
+	<style>
+	li::before {
+		margin-left: 0 !important;
+	}
+	.mainslide { 
+		background-color:#69D2E7;
+		color:#F38630;
+		font-size:24pt;
+		}
+		.header-white{
+			color:#E0E4CC;
+			font-size:36pt;
+			font-weight:bold;
+			padding-top:300px;
+			}
+		.header-orange{
+			color:#F38630;
+			font-size:71pt;
+			font-weight:bold;
+		}
+		.header-darkblue{
+			color:#3299BB;
+			font-size:71pt;
+			font-weight:bold;
+			padding-top:200px;
+		}
+		.header-lightblue{
+			color:#A7DBD8;
+			font-size:71pt;
+			font-weight:bold;
+			padding-top:200px;
+		}
+		.background1{
+			background-color:#36393B !important;
+		}
+		.background-white{
+			background-color:#fff !important;
+		}
+		.background-blue{
+			background-color:#A7DBD8 !important;
+		}
+		.author{
+			padding-top:100px;
+			color:#aaa;
+		}
+
+	  </style>
+  </head>
+  <body style='display: none'>
+    <section class='slides layout-faux-widescreen template-mariekj'>
+      <article class='background1'>
+        <div class='header-white'>
+          Testing
+		</div>
+          <br />
+		<div class='header-orange'>
+          En bedre måte?
+        </div>
+        <p class='author'>
+          Gaute Magnussen
+          <br/>
+          02. 02. 2012
+        </p>
+      </article>
+	 <article class='background-blue'>
+		<div style='font-size:100pt; padding-top:160px; color:#3299BB; padding-left:100px;'>Bakgrunn</div>
+		<div style='text-transform: uppercase; padding-top:50px; width:800px; padding-left:150px;'>
+			Har skrevet mange tester. Mange dårlige. Mange gode. <br />Kjent både fordeler og ulemper på kroppen.
+		</div>
+      </article>
+      <article class='background-white'>
+		<img style='height: 600px; position:relative; left:-100px;' src='images/oneFastUselessTestCode.png'/>
+	</article>
+	<article class='background1'>
+		<div class='header-orange' style='font-size:150px; line-height:170px; padding-top:300px'>
+			Min måte
+		</div>	
+		 <div class='header-white' style='font-size:40px; text-transform: uppercase; padding-top:0px;'>
+	         BDD-style, Akseptansetest først, Unit test det vanskelige, Integrasjonstester på resten, Mock eksterne avhengigheter, Abstrahere vekk infrastruktur.
+	        </div>
+      </article>
+	<article>
+		<div style='color:#A7DBD8; font-size:86pt; line-height:80px;'>
+          behaviour driven development
+        </div>      
+			<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>scenario, <span style='color:#F38630'>given when then</span>, features, <br />dekopling fra implementasjon,<span style='color:#F38630'> outside in</span>, gherkin, <br />business value.
+			</div>
+      </article>
+      <article class='background-white'>
+		<img style='height: 400px; position:relative; left:-100px;' src='images/oneSlowGoodTest2.png'/>
+	</article>
+	<article>
+		<div style='color:#A7DBD8; font-size:90pt; line-height:90px;'>
+			Akseptansetest <br />først
+        </div>
+        <div style='color:#3299BB; font-size:47pt; line-height:90px;'>        
+        </div>
+			<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>				
+				test utenfra, <span style='color:#F38630'>implementasjon er uviktig,</span> forventet resultat er viktig,
+				<span style='color:#F38630'>Et scenario i hver klasse,</span> mange tester, 
+				<span style='color:#F38630'>mange rammeverk<br /> kan kjøre i minnet.</span>
+				
+			</div>
+      </article>
+       <article class='background-white'>
+		<img style='height: 250px; position:relative; left:-100px;' src='images/HighStartupCost.png'/>
+	</article>
+	<article>
+		<div style='color:#A7DBD8; font-size:90pt; line-height:90px;'>
+			Unit test det vanskelige
+        </div>
+        <div style='color:#3299BB; font-size:47pt; line-height:90px;'>        
+        </div>
+			<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>				
+				<span style='color:#F38630'>Modeller, servicer, hjelpemetoder,</span> legg den vanskelige koden i klasser 
+				som er enkle å teste og har få eksterne avhengigheter.
+			</div>
+      </article>
+	<article>
+		<div style='color:#A7DBD8; font-size:90pt; line-height:90px;'>
+			Mocking
+        </div>
+        <div style='color:#3299BB; font-size:47pt; line-height:90px;'>        
+        </div>
+			<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>				
+				lite mocking, mock ustabile ting stabilt, mock eksterne avhengigheter, verifikasjoner gir skjøre tester, 
+				ikke vær redd for å bruke eksisterende implementasjoner, mocks er implementasjoner som må vedlikeholdes.
+
+			</div>
+      </article>
+	<article>
+		<div style='color:#A7DBD8; font-size:90pt; line-height:90px;'>
+			Abstrahere vekk infrastruktur.
+        </div>
+
+			<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>				
+				orm muliggjør sqlite og sql server ce, ravendb in memory, container kan benytte mocker i test, openrasta og nancyfx kan kjøre in memory. Tenk på dette når man velger infrastruktur.
+			</div>
+      </article>
+	<article>		
+        <div style='color:#3299BB; font-size:180px; line-height:200px; padding-top:50px, padding-left: -200px;'>
+          Utfordringer:
+        </div >
+		<ul class="build" style='font-size:32pt; margin-left:0'>
+			Akspetansetester er trege - trege å debugge, trege å kjøre.
+			Ingen absoulutt regel på hva som skal skrives når.
+			Ingen automatikk i hvilke testerfiler som berører hvilke klasser.
+		</ul>
+      </article>
+	<article>		
+        <div style='color:#3299BB; font-size:180px; line-height:200px; padding-top:50px, padding-left: -200px;'>
+          Fordeler:
+        </div >
+		<ul class="build" style='font-size:32pt; margin-left:0'>
+			Refactoring er enkelt.
+			Dokumenterer systemet bedre.
+			Røyker ut integrasjonsproblemer.
+			Bedre flyt i testskrivingen.
+			
+		</ul>
+      </article>
+	<article class='background1'>
+        <div class='header-orange' style="padding-top:300px; font-size:400pt;">
+          ?
+        </div>
+		<div class='header-orange' style='padding-left:200px; padding-top:100px;'>
+			spørsmål
+		</div>	
+      </article>
+	<article class='background-blue'>
+        <div style="color:#E0E4CC; padding-top:300px; font-size:60pt; horizontal-align:center;">
+          takk for meg
+        </div	>
+      </article>
+
+    </section>
+
+  </body>
+</html>
