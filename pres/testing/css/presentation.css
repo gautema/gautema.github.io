@@ -1,5 +1,4 @@
-.slides.template-mariekj > article:not(.nobackground) {
-        /*background: url(../images/SP2010logo.jpg) bottom right no-repeat;*/
+.slides.template-gautema > article:not(.nobackground) {
         background-color: #E0E4CC;  
 		padding-top:50px;
 		font-family:Impact, Arial;
@@ -10,7 +9,7 @@
 	  margin-top: 40px;
 	}
 
-.slides.template-mariekj .source{ left: 200px;}
+.slides.template-gautema .source{ left: 200px;}
 
 .slides.layout-faux-widescreen > article{
 	padding-left:80px;
