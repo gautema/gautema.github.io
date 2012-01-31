@@ -22,7 +22,7 @@
 			}
 		.header-orange{
 			color:#F38630;
-			font-size:71pt;
+			font-size:55pt;
 			font-weight:bold;
 		}
 		.header-darkblue{
@@ -59,9 +59,8 @@
         <div class='header-white'>
           Testing
 		</div>
-          <br />
 		<div class='header-orange'>
-          En bedre måte?
+          Finnes det en bedre måte?
         </div>
         <p class='author'>
           Gaute Magnussen
@@ -72,7 +71,7 @@
 	 <article class='background-blue'>
 		<div style='font-size:100pt; padding-top:160px; color:#3299BB; padding-left:100px;'>Bakgrunn</div>
 		<div style='text-transform: uppercase; padding-top:50px; width:800px; padding-left:150px;'>
-			Har skrevet mange tester. Mange dårlige. Mange gode. <br />Kjent både fordeler og ulemper på kroppen.
+			Har skrevet mange tester. Mange dårlige. Mange gode. <br />Kjent test-suiter bli tunge å jobbe med og å gjøre endringer med.
 		</div>
       </article>
       <article class='background-white'>
@@ -88,7 +87,7 @@
 			Unit test det vanskelige, 
 			Integrasjonstester på resten, 
 			Mock eksterne avhengigheter, 
-			Abstrahere vekk infrastruktur.
+			Velg infrastruktur med omhu.
 	        </div>
       </article>
 	<article>
@@ -133,9 +132,18 @@
         <div style='color:#3299BB; font-size:47pt; line-height:90px;'>        
         </div>
 			<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>				
-				<span style='color:#F38630'>Modeller, servicer, hjelpemetoder,</span> 
+				<span style='color:#F38630'>Utvalgte metoder på modeller, servicer, hjelpemetoder,</span> 
 				legg den vanskelige koden i klasser som er enkle å teste og har få eksterne avhengigheter.
 			</div>
+      </article>
+	<article>
+		<div style='color:#A7DBD8; font-size:90pt; line-height:90px;'>
+			Integrasjonstest resten
+        </div>
+		<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>				
+			<span style='color:#F38630'>Controllere, repositories, mapping,</span> 
+			lite logikk, lav conditional complexity
+		</div>
       </article>
 	<article>
 		<div style='color:#A7DBD8; font-size:90pt; line-height:90px;'>
@@ -145,16 +153,16 @@
         </div>
 			<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>				
 				lite mocking, 
-				mock ustabile ting stabilt, 
+				<span style='color:#F38630'>mock ustabile ting stabilt, </span>
 				mock eksterne avhengigheter, 
 				verifikasjoner gir skjøre tester, 
-				ikke vær redd for å bruke eksisterende implementasjoner, 
-				mocks er implementasjoner som må vedlikeholdes.
+				bruk <br />eksisterende implementasjoner, 
+				<span style='color:#F38630'>mocks er implementasjoner <br />som også må vedlikeholdes.</span>
 			</div>
       </article>
 	<article>
 		<div style='color:#A7DBD8; font-size:90pt; line-height:90px;'>
-			Abstrahere vekk infrastruktur.
+			Velg infrastruktur med omhu.
         </div>
 
 		<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>				
@@ -166,27 +174,38 @@
 		</div>
       </article>
 	<article>		
-        <div style='color:#3299BB; font-size:180px; line-height:200px; padding-top:50px, padding-left: -200px;'>
+        <div style='color:#3299BB; font-size:100px; line-height:200px; padding-top:50px, padding-left: -200px;'>
           Utfordringer:
         </div >
-		<ul class="build" style='font-size:32pt; margin-left:0'>
-			Akspetansetester er trege - trege å debugge, trege å kjøre.
-			Tungt å starte opp alle rammeverk i hver test.
-			Ingen absoulutt regel på hva som skal skrives når.
+		<ul style='margin-left:30;  margin-top:-20px; text-transform: uppercase;'>
+			<span style='color:#F38630'> trege å debugge, trege å kjøre.</span><br />
+			Tungt å starte opp alle rammeverk i hver test.<br />
+			Ingen absoulutt regel på hva som skal skrives når.<br />
 			Ingen automatikk i hvilke testerfiler som berører hvilke klasser.
 		</ul>
       </article>
+      <article class='background-white'>
+		<div style='position:relative; left:-100px;' >
+			<br/><br/>unit tester:<br/>
+			<img style='height: 30px;' src='images/fastTests.png'/>
+			<br/><br/>integrasjonstester:<br/>
+			<img style='height: 35px; ' src='images/slowTests.png'/>
+		</div>
+	</article>
 	<article>		
-        <div style='color:#3299BB; font-size:180px; line-height:200px; padding-top:50px, padding-left: -200px;'>
+        <div style='color:#3299BB; font-size:100px; line-height:200px; padding-top:50px, padding-left: -200px;'>
           Fordeler:
         </div >
-		<ul class="build" style='font-size:32pt; margin-left:0'>
-			Refactoring er enkelt.
-			Dokumenterer systemet bedre.
-			Røyker ut integrasjonsproblemer.
-			Bedre flyt i testskrivingen.
+		<ul style='margin-left:30; margin-top:-20px; text-transform: uppercase;'>
+			Refactoring er enkelt.<br />
+			Dokumenterer funksjonaliteten i systemet bedre.<br />
+			Røyker ut integrasjonsproblemer.<br />
+			Bedre flyt i testskrivingen.<br />
 			Fjerner behov for unødige abstraksjoner.
 		</ul>
+      </article>
+	 <article class='background-blue'>
+		<div style='font-size:100pt; padding-top:160px; color:#3299BB; padding-left:100px;'>Eksempler</div>
       </article>
 	<article class='background1'>
         <div class='header-orange' style="padding-top:300px; font-size:400pt;">
