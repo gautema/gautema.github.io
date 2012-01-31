@@ -83,14 +83,25 @@
 			Min måte
 		</div>	
 		 <div class='header-white' style='font-size:40px; text-transform: uppercase; padding-top:0px;'>
-	         BDD-style, Akseptansetest først, Unit test det vanskelige, Integrasjonstester på resten, Mock eksterne avhengigheter, Abstrahere vekk infrastruktur.
+	        BDD-style, 
+			Akseptansetest først, 
+			Unit test det vanskelige, 
+			Integrasjonstester på resten, 
+			Mock eksterne avhengigheter, 
+			Abstrahere vekk infrastruktur.
 	        </div>
       </article>
 	<article>
 		<div style='color:#A7DBD8; font-size:86pt; line-height:80px;'>
           behaviour driven development
         </div>      
-			<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>scenario, <span style='color:#F38630'>given when then</span>, features, <br />dekopling fra implementasjon,<span style='color:#F38630'> outside in</span>, gherkin, <br />business value.
+			<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>scenario, 
+				<span style='color:#F38630'>given when then</span>, 
+				features, <br />
+				dekopling fra implementasjon,
+				<span style='color:#F38630'> outside in</span>, 
+				gherkin, <br />
+				business value.
 			</div>
       </article>
       <article class='background-white'>
@@ -103,10 +114,13 @@
         <div style='color:#3299BB; font-size:47pt; line-height:90px;'>        
         </div>
 			<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>				
-				test utenfra, <span style='color:#F38630'>implementasjon er uviktig,</span> forventet resultat er viktig,
-				<span style='color:#F38630'>Et scenario i hver klasse,</span> mange tester, 
-				<span style='color:#F38630'>mange rammeverk<br /> kan kjøre i minnet.</span>
-				
+				test utenfra, 
+				<span style='color:#F38630'>implementasjon er uviktig,</span> 
+				forventet resultat er viktig,
+				<span style='color:#F38630'>Et scenario i hver klasse,</span> 
+				mange tester, 
+				<span style='color:#F38630'>mange rammeverk<br /> kan kjøre i minnet,</span> 
+				test ende til ende.				
 			</div>
       </article>
        <article class='background-white'>
@@ -119,8 +133,8 @@
         <div style='color:#3299BB; font-size:47pt; line-height:90px;'>        
         </div>
 			<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>				
-				<span style='color:#F38630'>Modeller, servicer, hjelpemetoder,</span> legg den vanskelige koden i klasser 
-				som er enkle å teste og har få eksterne avhengigheter.
+				<span style='color:#F38630'>Modeller, servicer, hjelpemetoder,</span> 
+				legg den vanskelige koden i klasser som er enkle å teste og har få eksterne avhengigheter.
 			</div>
       </article>
 	<article>
@@ -130,9 +144,12 @@
         <div style='color:#3299BB; font-size:47pt; line-height:90px;'>        
         </div>
 			<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>				
-				lite mocking, mock ustabile ting stabilt, mock eksterne avhengigheter, verifikasjoner gir skjøre tester, 
-				ikke vær redd for å bruke eksisterende implementasjoner, mocks er implementasjoner som må vedlikeholdes.
-
+				lite mocking, 
+				mock ustabile ting stabilt, 
+				mock eksterne avhengigheter, 
+				verifikasjoner gir skjøre tester, 
+				ikke vær redd for å bruke eksisterende implementasjoner, 
+				mocks er implementasjoner som må vedlikeholdes.
 			</div>
       </article>
 	<article>
@@ -140,9 +157,13 @@
 			Abstrahere vekk infrastruktur.
         </div>
 
-			<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>				
-				orm muliggjør sqlite og sql server ce, ravendb in memory, container kan benytte mocker i test, openrasta og nancyfx kan kjøre in memory. Tenk på dette når man velger infrastruktur.
-			</div>
+		<div style='text-transform: uppercase; padding-top:100px; width:800px; padding-left:150px;'>				
+			orm muliggjør sqlite og sql server ce, 
+			ravendb in memory, 
+			container kan benytte mocker i test, 
+			openrasta og nancyfx kan kjøre in memory. 
+			Tenk på dette når man velger infrastruktur.
+		</div>
       </article>
 	<article>		
         <div style='color:#3299BB; font-size:180px; line-height:200px; padding-top:50px, padding-left: -200px;'>
@@ -150,6 +171,7 @@
         </div >
 		<ul class="build" style='font-size:32pt; margin-left:0'>
 			Akspetansetester er trege - trege å debugge, trege å kjøre.
+			Tungt å starte opp alle rammeverk i hver test.
 			Ingen absoulutt regel på hva som skal skrives når.
 			Ingen automatikk i hvilke testerfiler som berører hvilke klasser.
 		</ul>
