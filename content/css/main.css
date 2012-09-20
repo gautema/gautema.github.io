@@ -12,6 +12,7 @@
 	{
 	    body {
 	        background:#666 url('../images/bg.jpg') no-repeat right top;
+          background-size: 100%;
 	    }
     }
     #title
