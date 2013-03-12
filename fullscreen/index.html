@@ -25,7 +25,9 @@
           else
             return result;
         };
+      var color = getParameter();
       $('body').css('background-color', getParameter());
+      document.title = color;
     });
   </script>
 </body>
