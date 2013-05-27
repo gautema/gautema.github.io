@@ -31,12 +31,8 @@
 	</head>
 
 	<body>
-
 		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-
 				<section>
 					<h2>How to cope with overnight success </h1>
 					<h3>Scaling your web app fast and cheap</h3>
@@ -55,14 +51,114 @@
 						This is me!
 					</aside>
 				</section>
+				<section>
+					<h2>No silver bullet</h2>
+					<p>
+						Scaling will allways have a cost.<br/>
+						Speed is a feature, and it requires attention.
+					</p>
+				</section>
+				<section>
+					<h2>Where to start?</h2>
+				</section>
+				<section>
+					<h2>Measure</h2>
+					<ul>
+						<li class="fragment">Get a baseline.</li>
+						<li class="fragment">Monitor user behaviour.</li>
+						<li class="fragment">Load test</li>
+						<li class="fragment">Profile your code</li>
+					</ul>
+					<aside class="notes">
+						google analytics, new relic and more are great for measuring users.
+						grinder, blitz.io, vs's load tester. blitz.io is really easy to get started with and cheap.
+						ANTS profiler and dotTrace can profile .net code
+					</aside>
+				</section>
+				<section>
+					<h2>Avoid premature optimisation and focus on macro level</h2>
+					<ul>
+						<li class="fragment">Focus on the operations that takes the most accumulated resources.</li>
+						<li class="fragment">Know your domain and your users. Optimise for actual usage.</li>
+						<li class="fragment">Know the code and where it hurts. Don't guess!</li>
+					</ul>
+					<aside class="notes">
 
+					</aside>
+				</section>
+				<section>
+					<h2>Short iterations, fast feedback</h2>
+					<ul>
+						<li class="fragment">Easy deployment.</li>
+						<li class="fragment">Good test suite.</li>
+						<li class="fragment">Find bottleneck, remove, repeat until done</li>
+					</ul>
+					<aside class="notes">
+
+					</aside>
+				</section>
+				<section>
+					<h2>Test in production</h2>
+					<ul>
+						<li class="fragment">Real data is the best data.</li>
+						<li class="fragment">Test on a subset if possible.</li>
+						<li class="fragment">Compare resources usage with baseline.</li>
+						<li class="fragment">Be ready to roll back</li>
+					</ul>
+					<aside class="notes">
+
+					</aside>
+				</section>
+				<section>
+					<h2>Scaling with hardware</h2>
+					<ul>
+						<li>Developers are expencive, hardware is relative cheap</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Scaling up or out?</h2>
+					<ul>
+						<li>Exponential vs linear growth</li>
+						<li>License costs makes this more complex</li>
+						<li>Out is more complex</li>
+					</ul>
+					<aside class="notes">
+						Scaling up is usually good up to a point. Out requires more infrastructure, laod balancing, harder deployment, more servers to maintain.
+					</aside>
+				</section>				
+				<section>
+					<h2>Load balancing</h2>
+					<ul>
+						<li>Software vs Hardware</li>
+						<li>Terminate SSL</li>
+						<li>Reverse proxy</li>
+					</ul>
+					<aside class="notes">
+						Hardware load balancers are really just software balancer with an expencive price and a warranty. Lot's of good open source balancers available. Requires some linux/unix knowledge and getting your hands dirty.
+					</aside>
+				</section>
+				<section>
+					<h2>Using the cloud</h2>
+					<ul>
+						<li>Works well with traffic bursts</li>
+						<li>Some resources are hard to provision</li>
+						<li>Hard to port</li>
+						<li>A lot of available features</li>
+						<li>Less maintence</li>
+					</ul>
+					<aside class="notes">
+						IO is not adjustable. Data stores are decided.
+					</aside>
+				</section>
+				<section>
+					<h2>Fixing your code</h2>
+					<aside class="notes">
+					</aside>
+				</section>
 			</div>
-
 		</div>
-
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
-
 		<script>
 
 			// Full list of configuration options available here:
@@ -88,8 +184,6 @@
 					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
-
 		</script>
-
 	</body>
 </html>
