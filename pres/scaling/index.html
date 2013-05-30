@@ -43,6 +43,7 @@
 					<p>
 						Web developer<br/>
 						twitter: @gautema<br/>
+						github: /gautema<br/>
 						web: http://gautema.com<br/>
 						email: gaute@gautema.com
 					</p>
@@ -123,7 +124,7 @@
 						<li>Out is more complex</li>
 					</ul>
 					<aside class="notes">
-						Scaling up is usually good up to a point. Out requires more infrastructure, laod balancing, harder deployment, more servers to maintain.
+						Scaling up is usually good up to a point. Out requires more infrastructure, laod balancing, harder deployment, more servers to maintain. Scaling up requires throwing away your old hardware and buying new. Out will just add to existing. 
 					</aside>
 				</section>				
 				<section>
@@ -152,6 +153,135 @@
 				</section>
 				<section>
 					<h2>Fixing your code</h2>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>End user cache</h2>
+					<ul>
+						<li>Learn HTTP and it's caching mechanisms</li>
+						<li>Long max-age</li>
+						<li>Change url when changes occur.</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h3>web.config</h3>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>CDN</h2>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>Minimize and bundle js</h2>
+					<ul>
+						<li>Easier on the client and the server</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h3>Internal cache</h3>
+					<ul>
+						<li>Memchached and redis</li>
+						<li>Layer 7 load balancing</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h3>Choosing databases</h3>
+					<ul>
+						<li>NoSQL has happened for a reason</li>
+						<li>Different databases have differnet sweet spots</li>
+						<li>Mix and match in the same application</li>
+						<li>Choose database based on usage, not old habits</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h3>Sharding</h3>
+					<ul>
+						<li></li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h3>Understand your databases</h3>
+					<ul>
+						<li>Don't hide all the database features behind a generic repository</li>
+						<li>Don't be afraid to batch data on the datbases terms</li>
+						<li>Use your database's strengths and be aware of it's weaknesses</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h3>Save your data based on usage</h3>
+					<ul>
+						<li>In read heavy use cases, make it cheap to read.</li>
+						<li>In write heavy use cases, make it cheap to write</li>
+						<li>Mix and match architectures in your application</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h3>Batch your network queries</h3>
+					<ul>
+						<li>Don't pretend memory calls and network calls are the same</li>
+						<li>Separate request based on caching </li>
+						<li>Leverage HTTP cache inside your application aswell. .NET default behaviour is bypassing cache.</li>
+					</ul>
+					<aside class="notes">
+						Remember .NET uses IE's caching, so upgrade IE for better caching.
+					</aside>
+				</section>
+				<section>
+					<h3>Put state on the client</h3>
+					<ul>
+						<li>Avoid sticky sessions</li>
+						<li>No memory used per user</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h3>Reduce the number of requests</h3>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h3>Do slow work in the background</h3>
+					<ul>
+						<li>Not all processes have the same priority</li>
+						<li>Synchronicity actions can be faked in the UI layer</li>
+						<li>Handles sudden bursts in traffic better</li>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h3>Reject features</h3>
+					<ul>
+						<li>Avoid cross cutting features if you can</li>
+						<li>Product owners don't understand how features kill performance. Tell them.</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h3>TL;DR</h3>
+					<ul>
+						<li>Move fast</li>
+						<li>Measure</li>
+						<li>Don't stop thinking about speed</li>
+					</ul>
 					<aside class="notes">
 					</aside>
 				</section>
