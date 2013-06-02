@@ -35,7 +35,7 @@
 			<div class="slides">
 				<section>
 					<h2>How to cope with overnight success </h1>
-					<h3>Scaling your web app fast and cheap</h3>
+					<h2>Scaling your web app fast and cheap</h2>
 				</section>
 
 				<section>
@@ -57,6 +57,13 @@
 					<p>
 						Scaling will allways have a cost.<br/>
 						Speed is a feature, and it requires attention.
+					</p>
+				</section>
+				<section>
+					<h2>What is a scaleable system?</h2>
+					<p>
+						Fast vs scaleable vs reliable
+
 					</p>
 				</section>
 				<section>
@@ -167,25 +174,29 @@
 					</aside>
 				</section>
 				<section>
-					<h3>web.config</h3>
+					<h2>web.config</h2>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
 					<h2>CDN</h2>
-					<aside class="notes">
-					</aside>
-				</section>
-				<section>
-					<h2>Minimize and bundle js</h2>
 					<ul>
-						<li>Easier on the client and the server</li>
+						<li>Don't host your static resources on your expensive app server</li>
 					</ul>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
-					<h3>Internal cache</h3>
+					<h2>Minimize and bundle and version js</h2>
+					<ul>
+						<li>Easier on the client and the server</li>
+						<li>Versioning makes caching easier</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>Internal cache</h2>
 					<ul>
 						<li>Memchached and redis</li>
 						<li>Layer 7 load balancing</li>
@@ -194,9 +205,8 @@
 					</aside>
 				</section>
 				<section>
-					<h3>Choosing databases</h3>
+					<h2>Choosing databases</h2>
 					<ul>
-						<li>NoSQL has happened for a reason</li>
 						<li>Different databases have differnet sweet spots</li>
 						<li>Mix and match in the same application</li>
 						<li>Choose database based on usage, not old habits</li>
@@ -205,15 +215,15 @@
 					</aside>
 				</section>
 				<section>
-					<h3>Sharding</h3>
+					<h2>Sharding</h2>
 					<ul>
-						<li></li>
+						<li>Put </li>
 					</ul>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
-					<h3>Understand your databases</h3>
+					<h2>Understand your databases</h2>
 					<ul>
 						<li>Don't hide all the database features behind a generic repository</li>
 						<li>Don't be afraid to batch data on the datbases terms</li>
@@ -223,7 +233,7 @@
 					</aside>
 				</section>
 				<section>
-					<h3>Save your data based on usage</h3>
+					<h2>Save your data based on usage</h2>
 					<ul>
 						<li>In read heavy use cases, make it cheap to read.</li>
 						<li>In write heavy use cases, make it cheap to write</li>
@@ -233,7 +243,7 @@
 					</aside>
 				</section>
 				<section>
-					<h3>Batch your network queries</h3>
+					<h2>Batch your network queries</h2>
 					<ul>
 						<li>Don't pretend memory calls and network calls are the same</li>
 						<li>Separate request based on caching </li>
@@ -244,7 +254,7 @@
 					</aside>
 				</section>
 				<section>
-					<h3>Put state on the client</h3>
+					<h2>Put state on the client</h2>
 					<ul>
 						<li>Avoid sticky sessions</li>
 						<li>No memory used per user</li>
@@ -253,12 +263,12 @@
 					</aside>
 				</section>
 				<section>
-					<h3>Reduce the number of requests</h3>
+					<h2>Reduce the number of requests</h2>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
-					<h3>Do slow work in the background</h3>
+					<h2>Do slow work in the background</h2>
 					<ul>
 						<li>Not all processes have the same priority</li>
 						<li>Synchronicity actions can be faked in the UI layer</li>
@@ -267,7 +277,7 @@
 					</aside>
 				</section>
 				<section>
-					<h3>Reject features</h3>
+					<h2>Reject features</h2>
 					<ul>
 						<li>Avoid cross cutting features if you can</li>
 						<li>Product owners don't understand how features kill performance. Tell them.</li>
@@ -276,7 +286,7 @@
 					</aside>
 				</section>
 				<section>
-					<h3>TL;DR</h3>
+					<h2>TL;DR</h2>
 					<ul>
 						<li>Move fast</li>
 						<li>Measure</li>
@@ -284,6 +294,21 @@
 					</ul>
 					<aside class="notes">
 					</aside>
+				</section>
+				<section>
+					<h2>Gaute Magnussen</h2>
+					<p>
+						Web developer<br/>
+						twitter: @gautema<br/>
+						github: /gautema<br/>
+						web: http://gautema.com<br/>
+						email: gaute@gautema.com
+					</p>
+
+					<aside class="notes">
+						This is me!
+					</aside>
+				</section>
 				</section>
 			</div>
 		</div>
