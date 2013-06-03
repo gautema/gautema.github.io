@@ -35,7 +35,7 @@
 			<div class="slides">
 				<section>
 					<h2>How to cope with overnight success </h1>
-					<h2>Scaling your web app fast and cheap</h2>
+					<h3>Scaling your web app fast and cheap</h3>
 				</section>
 
 				<section>
@@ -49,13 +49,13 @@
 					</p>
 
 					<aside class="notes">
-						This is me!
+						This is me! Contact me, and please give me feedback on the talk
 					</aside>
 				</section>
 				<section>
 					<h2>No silver bullet</h2>
 					<p>
-						Scaling will allways have a cost.<br/>
+						Scaling will always have a cost.<br/>
 						Speed is a feature, and it requires attention.
 					</p>
 				</section>
@@ -63,7 +63,6 @@
 					<h2>What is a scaleable system?</h2>
 					<p>
 						Fast vs scaleable vs reliable
-
 					</p>
 				</section>
 				<section>
@@ -120,7 +119,7 @@
 				<section>
 					<h2>Scaling with hardware</h2>
 					<ul>
-						<li>Developers are expencive, hardware is relative cheap</li>
+						<li>Developers are expencive, hardware is relative cheap (Up to a point)</li>
 					</ul>
 				</section>
 				<section>
@@ -152,7 +151,6 @@
 						<li>Some resources are hard to provision</li>
 						<li>Hard to port</li>
 						<li>A lot of available features</li>
-						<li>Less maintence</li>
 					</ul>
 					<aside class="notes">
 						IO is not adjustable. Data stores are decided.
@@ -175,6 +173,29 @@
 				</section>
 				<section>
 					<h2>web.config</h2>
+					<pre><code>
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <system.webServer>
+     <modules runAllManagedModulesForAllRequests="true" />
+        <staticContent>	
+            <clientCache cacheControlMode="UseMaxAge" 
+            cacheControlMaxAge="1.00:00:00" />
+        </staticContent>
+  </system.webServer>
+</configuration>
+					</code></pre>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>Make it static</h2>
+					<ul>
+						<li>Html-files are really easy to serve</li>
+						<li>Can only change at deployment</li>
+						<li>Use on pages that don't change much</li>
+						<li>Put the rest in with JS</li>
+					</ul>
 					<aside class="notes">
 					</aside>
 				</section>
@@ -198,7 +219,8 @@
 				<section>
 					<h2>Internal cache</h2>
 					<ul>
-						<li>Memchached and redis</li>
+						<li>.NET 4.0 brought MemoryCache</li>
+						<li>Distributed caching. Memchached and redis</li>
 						<li>Layer 7 load balancing</li>
 					</ul>
 					<aside class="notes">
@@ -215,18 +237,10 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Sharding</h2>
-					<ul>
-						<li>Put </li>
-					</ul>
-					<aside class="notes">
-					</aside>
-				</section>
-				<section>
 					<h2>Understand your databases</h2>
 					<ul>
 						<li>Don't hide all the database features behind a generic repository</li>
-						<li>Don't be afraid to batch data on the datbases terms</li>
+						<li>Batch data</li>
 						<li>Use your database's strengths and be aware of it's weaknesses</li>
 					</ul>
 					<aside class="notes">
@@ -286,7 +300,7 @@
 					</aside>
 				</section>
 				<section>
-					<h2>TL;DR</h2>
+					<h2>Conclution</h2>
 					<ul>
 						<li>Move fast</li>
 						<li>Measure</li>
@@ -301,7 +315,7 @@
 						Web developer<br/>
 						twitter: @gautema<br/>
 						github: /gautema<br/>
-						web: http://gautema.com<br/>	
+						web: http://gautema.com<br/>
 						email: gaute@gautema.com
 						slides: http://gautema.com/pres/scaling
 					</p>
@@ -326,7 +340,7 @@
 				center: true,
 
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+				transition: 'fade', // default/cube/page/concave/zoom/linear/fade/none
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
