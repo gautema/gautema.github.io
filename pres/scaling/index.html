@@ -36,6 +36,7 @@
 				<section>
 					<h2>How to cope with overnight success </h1>
 					<h3>Scaling your web app fast and cheap</h3>
+					<h4>Gaute Magnussen - 12.06.2013</h4>
 				</section>
 
 				<section>
@@ -62,7 +63,7 @@
 				<section>
 					<h2>What is a scaleable system?</h2>
 					<p>
-						Fast vs scaleable vs reliable
+						Scalability is the ability of a system, network, or process to handle a growing amount of work in a capable manner or its ability to be enlarged to accommodate that growth.
 					</p>
 				</section>
 				<section>
@@ -79,11 +80,13 @@
 					<aside class="notes">
 						google analytics, new relic and more are great for measuring users.
 						grinder, blitz.io, vs's load tester. blitz.io is really easy to get started with and cheap.
-						ANTS profiler and dotTrace can profile .net code
+						ANTS profiler and dotTrace can profile .net code.
+
+						It's important to know where you are before you do anything. 
 					</aside>
 				</section>
 				<section>
-					<h2>Avoid premature optimisation and focus on macro level</h2>
+					<h2>Avoid premature optimisation <br>and focus on macro level</h2>
 					<ul>
 						<li class="fragment">Focus on the operations that takes the most accumulated resources.</li>
 						<li class="fragment">Know your domain and your users. Optimise for actual usage.</li>
@@ -98,7 +101,7 @@
 					<ul>
 						<li class="fragment">Easy deployment.</li>
 						<li class="fragment">Good test suite.</li>
-						<li class="fragment">Find bottleneck, remove, repeat until done</li>
+						<li class="fragment">Find bottleneck, remove, measure, repeat</li>
 					</ul>
 					<aside class="notes">
 
@@ -119,26 +122,37 @@
 				<section>
 					<h2>Scaling with hardware</h2>
 					<ul>
-						<li>Developers are expencive, hardware is relative cheap (Up to a point)</li>
+						<li class="fragment">Developers are expensive, hardware is cheap (Up to a point)</li>
 					</ul>
 				</section>
 				<section>
 					<h2>Scaling up or out?</h2>
 					<ul>
-						<li>Exponential vs linear growth</li>
-						<li>License costs makes this more complex</li>
-						<li>Out is more complex</li>
+						<li class="fragment">Exponential vs linear cost growth</li>
+						<li class="fragment">License costs makes this more complex</li>
+						<li class="fragment">Out is more complex</li>
 					</ul>
 					<aside class="notes">
 						Scaling up is usually good up to a point. Out requires more infrastructure, laod balancing, harder deployment, more servers to maintain. Scaling up requires throwing away your old hardware and buying new. Out will just add to existing. 
+					</aside>
+				</section>
+				<section>
+					<h2>Scaling the database</h2>
+					<ul>
+						<li class="fragment">Scaling out is hard...</li>
+						<li class="fragment">Replicated read database</li>
+						<li class="fragment">Sharding and clustering</li>
+					</ul>
+					<aside class="notes">
+
 					</aside>
 				</section>				
 				<section>
 					<h2>Load balancing</h2>
 					<ul>
-						<li>Software vs Hardware</li>
-						<li>Terminate SSL</li>
-						<li>Reverse proxy</li>
+						<li class="fragment">Software vs Hardware</li>
+						<li class="fragment">Terminate SSL</li>
+						<li class="fragment">Reverse proxy</li>
 					</ul>
 					<aside class="notes">
 						Hardware load balancers are really just software balancer with an expencive price and a warranty. Lot's of good open source balancers available. Requires some linux/unix knowledge and getting your hands dirty.
@@ -147,10 +161,10 @@
 				<section>
 					<h2>Using the cloud</h2>
 					<ul>
-						<li>Works well with traffic bursts</li>
-						<li>Some resources are hard to provision</li>
-						<li>Hard to port</li>
-						<li>A lot of available features</li>
+						<li class="fragment">Works well with traffic bursts</li>
+						<li class="fragment">Some resources are hard to provision</li>
+						<li class="fragment">Hard to port</li>
+						<li class="fragment">A lot of available features</li>
 					</ul>
 					<aside class="notes">
 						IO is not adjustable. Data stores are decided.
@@ -162,26 +176,27 @@
 					</aside>
 				</section>
 				<section>
-					<h2>End user cache</h2>
+					<h2>Http cache</h2>
 					<ul>
-						<li>Learn HTTP and it's caching mechanisms</li>
-						<li>Long max-age</li>
-						<li>Change url when changes occur.</li>
+						<li class="fragment">Learn HTTP and it's caching mechanisms</li>
+						<li class="fragment">Long max-age (1 year)</li>
+						<li class="fragment">Change url when the resource changes.</li>
 					</ul>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
 					<h2>web.config</h2>
-					<pre><code>
+					<pre><code data-trim contenteditable>
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <system.webServer>
-     <modules runAllManagedModulesForAllRequests="true" />
-        <staticContent>	
-            <clientCache cacheControlMode="UseMaxAge" 
-            cacheControlMaxAge="1.00:00:00" />
-        </staticContent>
+     <modules runAllManagedModulesForAllRequests="true"></modules>
+     <staticContent>	
+       <clientCache cacheControlMode="UseMaxAge" 
+        cacheControlMaxAge="365.00:00:00">
+      </clientCache>
+    </staticContent>
   </system.webServer>
 </configuration>
 					</code></pre>
@@ -189,12 +204,14 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Make it static</h2>
+					<h2>Make content static</h2>
 					<ul>
-						<li>Html-files are really easy to serve</li>
-						<li>Can only change at deployment</li>
-						<li>Use on pages that don't change much</li>
-						<li>Put the rest in with JS</li>
+						<li class="fragment">Files are really easy to serve</li>
+						<li class="fragment">Can only change at deployment</li>
+						<li class="fragment">Use on pages that don't change much</li>
+						<li class="fragment">Put the rest in with JS</li>
+						<li class="fragment">Make it easy to deploy</li>
+						<li class="fragment">Make your publishing system create html <br>	instead of coloumns in a database</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -202,16 +219,19 @@
 				<section>
 					<h2>CDN</h2>
 					<ul>
-						<li>Don't host your static resources on your expensive app server</li>
+						<li class="fragment">Don't host your static resources on your expensive app server</li>
 					</ul>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
-					<h2>Minimize and bundle and version js</h2>
+					<h2>Bundle requests</h2>
 					<ul>
-						<li>Easier on the client and the server</li>
-						<li>Versioning makes caching easier</li>
+						<li class="fragment">Minimize bundle and version js</li>
+						<li class="fragment">Use css sprites</li>
+						<li class="fragment">Bundle dynamic queries</li>
+						<li class="fragment">Easier on the client and the server</li>
+						<li class="fragment">Versioning makes caching easier</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -219,9 +239,9 @@
 				<section>
 					<h2>Internal cache</h2>
 					<ul>
-						<li>.NET 4.0 brought MemoryCache</li>
-						<li>Distributed caching. Memchached and redis</li>
-						<li>Layer 7 load balancing</li>
+						<li class="fragment">.NET 4.0 brought MemoryCache</li>
+						<li class="fragment">Distributed caching (Memchached and redis)</li>
+						<li class="fragment">Layer 7 load balancing</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -229,9 +249,9 @@
 				<section>
 					<h2>Choosing databases</h2>
 					<ul>
-						<li>Different databases have differnet sweet spots</li>
-						<li>Mix and match in the same application</li>
-						<li>Choose database based on usage, not old habits</li>
+						<li class="fragment">Different databases have differnet sweet spots</li>
+						<li class="fragment">Mix and match in the same application</li>
+						<li class="fragment">Choose database based on usage, not old habits</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -239,9 +259,9 @@
 				<section>
 					<h2>Understand your databases</h2>
 					<ul>
-						<li>Don't hide all the database features behind a generic repository</li>
-						<li>Batch data</li>
-						<li>Use your database's strengths and be aware of it's weaknesses</li>
+						<li class="fragment">Don't hide all the database features <br>behind a generic repository</li>
+						<li class="fragment">Batch data</li>
+						<li class="fragment">Use your database's strengths <br>and be aware of it's weaknesses</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -249,9 +269,9 @@
 				<section>
 					<h2>Save your data based on usage</h2>
 					<ul>
-						<li>In read heavy use cases, make it cheap to read.</li>
-						<li>In write heavy use cases, make it cheap to write</li>
-						<li>Mix and match architectures in your application</li>
+						<li class="fragment">In read heavy use cases, make it cheap to read.</li>
+						<li class="fragment">In write heavy use cases, make it cheap to write</li>
+						<li class="fragment">Mix and match architectures in your application</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -259,9 +279,9 @@
 				<section>
 					<h2>Batch your network queries</h2>
 					<ul>
-						<li>Don't pretend memory calls and network calls are the same</li>
-						<li>Separate request based on caching </li>
-						<li>Leverage HTTP cache inside your application aswell. .NET default behaviour is bypassing cache.</li>
+						<li class="fragment">Don't pretend memory calls and network calls are the same</li>
+						<li class="fragment">Separate request based on caching </li>
+						<li class="fragment">Leverage HTTP cache inside your application aswell. .NET default behaviour is bypassing cache.</li>
 					</ul>
 					<aside class="notes">
 						Remember .NET uses IE's caching, so upgrade IE for better caching.
@@ -270,41 +290,36 @@
 				<section>
 					<h2>Put state on the client</h2>
 					<ul>
-						<li>Avoid sticky sessions</li>
-						<li>No memory used per user</li>
+						<li class="fragment">Avoid sticky sessions</li>
+						<li class="fragment">No memory used per user</li>
 					</ul>
-					<aside class="notes">
-					</aside>
-				</section>
-				<section>
-					<h2>Reduce the number of requests</h2>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
 					<h2>Do slow work in the background</h2>
 					<ul>
-						<li>Not all processes have the same priority</li>
-						<li>Synchronicity actions can be faked in the UI layer</li>
-						<li>Handles sudden bursts in traffic better</li>
+						<li class="fragment">Not all processes have the same priority</li>
+						<li class="fragment">Synchronicity actions can be faked in the UI layer</li>
+						<li class="fragment">Handles sudden bursts in traffic better</li>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
 					<h2>Reject features</h2>
 					<ul>
-						<li>Avoid cross cutting features if you can</li>
-						<li>Product owners don't understand how features kill performance. Tell them.</li>
+						<li class="fragment">Avoid cross cutting features if you can</li>
+						<li class="fragment">Product owners don't understand how features kill performance. Tell them.</li>
 					</ul>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
-					<h2>Conclution</h2>
+					<h2>Conclusion</h2>
 					<ul>
-						<li>Move fast</li>
-						<li>Measure</li>
-						<li>Don't stop thinking about speed</li>
+						<li class="fragment">Move fast</li>
+						<li class="fragment">Measure</li>
+						<li class="fragment">Don't stop thinking about speed</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -338,6 +353,7 @@
 				progress: true,
 				history: true,
 				center: true,
+				width: 1200,
 
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 				transition: 'fade', // default/cube/page/concave/zoom/linear/fade/none
