@@ -19,7 +19,12 @@
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<style type="text/css">
+			body{
+				background: #06596f;	
+			}
 
+		</style>
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
@@ -46,11 +51,21 @@
 						twitter: @gautema<br/>
 						github: /gautema<br/>
 						web: http://gautema.com<br/>
-						email: gaute@gautema.com
+						email: gaute@gautema.com<br/>
+						slides: http://gautema.com/pres/scaling
 					</p>
-
 					<aside class="notes">
 						This is me! Contact me, and please give me feedback on the talk
+					</aside>
+				</section>
+
+				<section>
+					<h2>What is a scaleable system?</h2>
+					<p>
+						Scalability is the ability of a system, network, or process to handle a growing amount of work in a capable manner or its ability to be enlarged to accommodate that growth.
+					</p>
+					<aside class="notes">
+						Not about speed or performance. A scalable system is usually performant, not the other way around.
 					</aside>
 				</section>
 				<section>
@@ -58,12 +73,6 @@
 					<p>
 						Scaling will always have a cost.<br/>
 						Speed is a feature, and it requires attention.
-					</p>
-				</section>
-				<section>
-					<h2>What is a scaleable system?</h2>
-					<p>
-						Scalability is the ability of a system, network, or process to handle a growing amount of work in a capable manner or its ability to be enlarged to accommodate that growth.
 					</p>
 				</section>
 				<section>
@@ -123,7 +132,11 @@
 					<h2>Scaling with hardware</h2>
 					<ul>
 						<li class="fragment">Developers are expensive, hardware is cheap (Up to a point)</li>
+						<li class="fragment">Needs enabling</li>
 					</ul>
+					<aside class="notes">
+						What you want is to be able to just add another box where to handle more users.
+					</aside>
 				</section>
 				<section>
 					<h2>Scaling up or out?</h2>
@@ -155,7 +168,7 @@
 						<li class="fragment">Reverse proxy</li>
 					</ul>
 					<aside class="notes">
-						Hardware load balancers are really just software balancer with an expencive price and a warranty. Lot's of good open source balancers available. Requires some linux/unix knowledge and getting your hands dirty.
+						Hardware load balancers are really just software balancer with an expencive price and a warranty. Lot's of good open source balancers available.(Varnish, nginx, HAProxy) Requires some linux/unix knowledge and getting your hands dirty.
 					</aside>
 				</section>
 				<section>
@@ -163,8 +176,8 @@
 					<ul>
 						<li class="fragment">Works well with traffic bursts</li>
 						<li class="fragment">Some resources are hard to provision</li>
-						<li class="fragment">Hard to port</li>
-						<li class="fragment">A lot of available features</li>
+						<li class="fragment">May need to port code</li>
+						<li class="fragment">More expensive side by side with regular hosting</li>
 					</ul>
 					<aside class="notes">
 						IO is not adjustable. Data stores are decided.
@@ -181,6 +194,7 @@
 						<li class="fragment">Learn HTTP and it's caching mechanisms</li>
 						<li class="fragment">Long max-age (1 year)</li>
 						<li class="fragment">Change url when the resource changes.</li>
+						<li class="fragment">Use your load balancer to cache.</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -206,12 +220,9 @@
 				<section>
 					<h2>Make content static</h2>
 					<ul>
-						<li class="fragment">Files are really easy to serve</li>
-						<li class="fragment">Can only change at deployment</li>
-						<li class="fragment">Use on pages that don't change much</li>
-						<li class="fragment">Put the rest in with JS</li>
-						<li class="fragment">Make it easy to deploy</li>
-						<li class="fragment">Make your publishing system create html <br>	instead of coloumns in a database</li>
+						<li class="fragment">Split the dynamic and static content</li>
+						<li class="fragment">Merge with JS or ESI</li>
+						<li class="fragment">Cache with reverse proxy or save it as a file</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -222,6 +233,7 @@
 						<li class="fragment">Don't host your static resources on your expensive app server</li>
 					</ul>
 					<aside class="notes">
+						Good for user experience as well. 
 					</aside>
 				</section>
 				<section>
@@ -252,6 +264,7 @@
 						<li class="fragment">Different databases have differnet sweet spots</li>
 						<li class="fragment">Mix and match in the same application</li>
 						<li class="fragment">Choose database based on usage, not old habits</li>
+						<li class="fragment">Use open source and unix</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -281,7 +294,7 @@
 					<ul>
 						<li class="fragment">Don't pretend memory calls and network calls are the same</li>
 						<li class="fragment">Separate request based on caching </li>
-						<li class="fragment">Leverage HTTP cache inside your application aswell. .NET default behaviour is bypassing cache.</li>
+						<li class="fragment">Leverage HTTP cache inside your application aswell.<br/> .NET default behaviour is bypassing cache.</li>
 					</ul>
 					<aside class="notes">
 						Remember .NET uses IE's caching, so upgrade IE for better caching.
@@ -325,13 +338,24 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Gaute Magnussen</h2>
+					<h2>Questions?</h2>
+					<p>
+						twitter: @gautema<br/>
+						github: /gautema<br/>
+						web: http://gautema.com<br/>
+						email: gaute@gautema.com<br/>
+						slides: http://gautema.com/pres/scaling
+					</p>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
 					<p>
 						Web developer<br/>
 						twitter: @gautema<br/>
 						github: /gautema<br/>
 						web: http://gautema.com<br/>
-						email: gaute@gautema.com
+						email: gaute@gautema.com<br/>
 						slides: http://gautema.com/pres/scaling
 					</p>
 
