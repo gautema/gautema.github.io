@@ -58,7 +58,16 @@
 						This is me! Contact me, and please give me feedback on the talk
 					</aside>
 				</section>
+				<section>
+					<h2>Background</h2>
+					<p>
 
+					</p>
+					<aside class="notes">
+						Worked on some large web sites. Got the idea for this talk last november, when two of the systems I was working on started having problems at the same time. Two very different systems, and not the same problems at all. 
+						Had a custom CMS, which had about 50 req/s and 1000 users at peak hours. And a new system for taking student math exams. Made as a prototype, and suddenly sold to 150 000 users that would take the exam during a two week period. Required about 1000 write req/s plus added requests to CMS. Currently running on 1 virtual machine with 2 cores and 4 gb ram.
+					</aside>
+				</section>
 				<section>
 					<h2>What is a scaleable system?</h2>
 					<p>
@@ -71,8 +80,8 @@
 				<section>
 					<h2>No silver bullet</h2>
 					<p>
-						Scaling will always have a cost.<br/>
-						Speed is a feature, and it requires attention.
+						Scaling will always have a cost<br/>
+						Speed is a feature, and it requires attention
 					</p>
 				</section>
 				<section>
@@ -81,8 +90,8 @@
 				<section>
 					<h2>Measure</h2>
 					<ul>
-						<li class="fragment">Get a baseline.</li>
-						<li class="fragment">Monitor user behaviour.</li>
+						<li class="fragment">Get a baseline</li>
+						<li class="fragment">Monitor user behaviour</li>
 						<li class="fragment">Load test</li>
 						<li class="fragment">Profile your code</li>
 					</ul>
@@ -97,8 +106,8 @@
 				<section>
 					<h2>Avoid premature optimisation <br>and focus on macro level</h2>
 					<ul>
-						<li class="fragment">Focus on the operations that takes the most accumulated resources.</li>
-						<li class="fragment">Know your domain and your users. Optimise for actual usage.</li>
+						<li class="fragment">Focus on the operations that takes the most accumulated resources</li>
+						<li class="fragment">Know your domain and your users. Optimise for actual usage</li>
 						<li class="fragment">Know the code and where it hurts. Don't guess!</li>
 					</ul>
 					<aside class="notes">
@@ -108,8 +117,8 @@
 				<section>
 					<h2>Short iterations, fast feedback</h2>
 					<ul>
-						<li class="fragment">Easy deployment.</li>
-						<li class="fragment">Good test suite.</li>
+						<li class="fragment">Easy deployment</li>
+						<li class="fragment">Good test suite</li>
 						<li class="fragment">Find bottleneck, remove, measure, repeat</li>
 					</ul>
 					<aside class="notes">
@@ -120,8 +129,8 @@
 					<h2>Test in production</h2>
 					<ul>
 						<li class="fragment">Real data is the best data.</li>
-						<li class="fragment">Test on a subset if possible.</li>
-						<li class="fragment">Compare resources usage with baseline.</li>
+						<li class="fragment">Test on a subset if possible</li>
+						<li class="fragment">Compare resources usage with baseline</li>
 						<li class="fragment">Be ready to roll back</li>
 					</ul>
 					<aside class="notes">
@@ -193,8 +202,8 @@
 					<ul>
 						<li class="fragment">Learn HTTP and it's caching mechanisms</li>
 						<li class="fragment">Long max-age (1 year)</li>
-						<li class="fragment">Change url when the resource changes.</li>
-						<li class="fragment">Use your load balancer to cache.</li>
+						<li class="fragment">Change url when the resource changes</li>
+						<li class="fragment">Use your load balancer to cache</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -220,7 +229,7 @@
 				<section>
 					<h2>Make content static</h2>
 					<ul>
-						<li class="fragment">Split the dynamic and static content</li>
+						<li class="fragment">Split the dynamic and static part of the page</li>
 						<li class="fragment">Merge with JS or ESI</li>
 						<li class="fragment">Cache with reverse proxy or save it as a file</li>
 					</ul>
@@ -259,14 +268,36 @@
 					</aside>
 				</section>
 				<section>
+					<h2>Memorycache</h2>
+					<pre><code data-trim contenteditable class="cs">
+
+var cache = MemoryCache.Default;
+var policyFactory = () => new CacheItemPolicy{SlidingExpiration = new TimeSpan(0, 0, 15, 0)};
+
+var person = new Person("Gaute", "Magnussen");
+
+cache.Add(person.Id, person, policyFactory.Invoke());
+
+var cached = cache.Contains(person.Id);
+
+var person2 = cache.Get(person.Id);
+
+cache.Remove(person.Id);
+
+					</code></pre>
+					<aside class="notes">
+						A lot of other features. Will make sure your server don't collapse because of limits.
+					</aside>
+				</section>
+				<section>
 					<h2>Choosing databases</h2>
 					<ul>
 						<li class="fragment">Different databases have differnet sweet spots</li>
 						<li class="fragment">Mix and match in the same application</li>
 						<li class="fragment">Choose database based on usage, not old habits</li>
-						<li class="fragment">Use open source and unix</li>
 					</ul>
 					<aside class="notes">
+						Use open source and unix. Search with lucene, solr or elastic search. 
 					</aside>
 				</section>
 				<section>
@@ -282,7 +313,7 @@
 				<section>
 					<h2>Save your data based on usage</h2>
 					<ul>
-						<li class="fragment">In read heavy use cases, make it cheap to read.</li>
+						<li class="fragment">In read heavy use cases, make it cheap to read</li>
 						<li class="fragment">In write heavy use cases, make it cheap to write</li>
 						<li class="fragment">Mix and match architectures in your application</li>
 					</ul>
@@ -293,8 +324,8 @@
 					<h2>Batch your network queries</h2>
 					<ul>
 						<li class="fragment">Don't pretend memory calls and network calls are the same</li>
-						<li class="fragment">Separate request based on caching </li>
-						<li class="fragment">Leverage HTTP cache inside your application aswell.<br/> .NET default behaviour is bypassing cache.</li>
+						<li class="fragment">Separate request based on caching</li>
+						<li class="fragment">Leverage HTTP cache inside your application aswell.<br/> .NET default behaviour is bypassing cache</li>
 					</ul>
 					<aside class="notes">
 						Remember .NET uses IE's caching, so upgrade IE for better caching.
@@ -307,13 +338,14 @@
 						<li class="fragment">No memory used per user</li>
 					</ul>
 					<aside class="notes">
+						Server sessions become a big problem when theres enough users. Even a small memory footprint will give problems when theres many users.
 					</aside>
 				</section>
 				<section>
 					<h2>Do slow work in the background</h2>
 					<ul>
 						<li class="fragment">Not all processes have the same priority</li>
-						<li class="fragment">Synchronicity actions can be faked in the UI layer</li>
+						<li class="fragment">Synchronicity can be faked in the UI layer</li>
 						<li class="fragment">Handles sudden bursts in traffic better</li>
 					<aside class="notes">
 					</aside>
@@ -333,7 +365,21 @@
 						<li class="fragment">Measure</li>
 						<li class="fragment">Small iterations</li>
 						<li class="fragment">Don't stop thinking about speed</li>
+						<li class="fragment">Embrace open source</li>
+
 					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>More?</h2>
+					<p>
+						The Issuu Ecosystem - a real life perspective on web-scale infrastructure <br/> Jesper Holm Olsen and Martin Koch - 13 June 2013 11:40<br/><br/>
+						Real World Polyglot Persistence <br/>Jimmy Bogard - 13 June 2013 09:00<br/><br/>
+						Telephones and postcards: our brave new world of messaging <br/> Jimmy Bogard - 13 June 2013 11:40<br/><br/>
+						Advanced HTTP Caching and patterns for Ninja Unicorns <br/> Sebastien Lambla - 13 June 2013 15:00<br/><br/>
+						SQL Server's Last Breath <br/> Rob Sullivan - 13 June 2013 17:40
+					</p>
 					<aside class="notes">
 					</aside>
 				</section>
