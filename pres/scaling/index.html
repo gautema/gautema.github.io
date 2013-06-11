@@ -62,8 +62,8 @@
 					<h2>Background</h2>
 					<img src="multi.png">
 					<aside class="notes">
-						Worked on some large web sites. Got the idea for this talk last november, when two of the systems I was working on started having problems at the same time. Two very different systems, and not the same problems at all. 
-						Had a custom CMS, which had about 50 req/s and 1000 users at peak hours. And a new system for taking student math exams. Made as a prototype, and suddenly sold to 150 000 users that would take the exam during a two week period. Required about 1000 write req/s plus added requests to CMS. Currently running on 1 virtual machine with 2 cores and 4 gb ram.
+						Got the idea for this talk last november, when two of the systems I was working on started having problems at the same time. Two very different systems, and not the same problems at all. 
+						Had a custom CMS, which had about 50 req/s and 1000 users at peak hours. And a new system for taking student math exams. Made as a prototype, and suddenly sold to 150 000 users that would take the exam during a two week period. Required about 1000 write req/s plus added requests to CMS. Currently running on 1 virtual machine with 2 cores and 4 gb ram. Two weeks to go from 20 req/s to 1000 req/s
 					</aside>
 				</section>
 				<section>
@@ -156,6 +156,8 @@
 					</ul>
 					<aside class="notes">
 						Hardware like fusion IO-disk can be really smart in high write scenarios.
+
+						We scaled from 2 to 8 cores, from 4 to 8 GB ram.
 					</aside>
 				</section>
 				<section>
@@ -173,7 +175,6 @@
 					<h2>Different cost profiles</h2>
 					<img src="cost.jpg" height="400px">
 					<aside class="notes">
-						Hardware like fusion IO-disk can be really smart in high write scenarios.
 					</aside>
 				</section>
 				<section>
@@ -184,7 +185,7 @@
 						<li class="fragment">Sharding and clustering</li>
 					</ul>
 					<aside class="notes">
-						Don't do it unless you really have to. The one place where scaling up usually is the right thing to do.
+						Don't go horisontal unless you really have to. The one place where scaling up usually is the right thing to do.
 					</aside>
 				</section>				
 				<section>
@@ -208,7 +209,7 @@
 						<li class="fragment">More expensive side by side with regular hosting</li>
 					</ul>
 					<aside class="notes">
-						IO is not adjustable. Data stores are decided.
+						IO is not adjustable. Data stores are decided. Tried Azure, but didn't work for us, as we did not have time to rewrite to a different database, and couldn't get good enough write performance.
 					</aside>
 				</section>
 				<section>
@@ -263,6 +264,7 @@
 					</ul>
 					<aside class="notes">
 						Good for user experience as well. Save yourself the trouble of serving lots of files. CDNs does it better.
+						We uploaded all published content in our CMS to Amazon Cloudfront.
 					</aside>
 				</section>
 				<section>
@@ -320,6 +322,9 @@ cache.Remove(person.Id);
 					</ul>
 					<aside class="notes">
 						Use open source and unix. Search with lucene, solr or elastic search. 
+						Redis is great for counters. 
+						Graph databases for graphs. 
+						Key/value stores for raw performance.
 					</aside>
 				</section>
 				<section>
@@ -330,7 +335,7 @@ cache.Remove(person.Id);
 						<li class="fragment">Use your database's strengths <br>and be aware of it's weaknesses</li>
 					</ul>
 					<aside class="notes">
-						Databases are not just key value stores so use it. Implementations of DDD has forgot this.
+						Databases are not just key/value stores so use it. Implementations of DDD has forgot this.
 
 					</aside>
 				</section>
@@ -372,6 +377,7 @@ cache.Remove(person.Id);
 						<li class="fragment">Synchronicity can be faked in the UI layer</li>
 						<li class="fragment">Handles sudden bursts in traffic better</li>
 					<aside class="notes">
+						Things that involve external and non reliable web services is nice to do in the background, but requires idempotency.
 					</aside>
 				</section>
 				<section>
@@ -380,7 +386,7 @@ cache.Remove(person.Id);
 						<li class="fragment">Avoid cross cutting features if you can</li>
 					</ul>
 					<aside class="notes">
-						Security on all pages. Differencieted views.
+						Security on all pages. Personalized views.
 					</aside>
 				</section>
 				<section>
@@ -389,7 +395,7 @@ cache.Remove(person.Id);
 						<li class="fragment">Measure</li>
 						<li class="fragment">Small iterations</li>
 						<li class="fragment">Don't stop thinking about speed</li>
-						<li class="fragment">Embrace open source</li>
+						<li class="fragment">Embrace other platforms</li>
 
 					</ul>
 					<aside class="notes">
