@@ -98,7 +98,9 @@
 						grinder, blitz.io, vs's load tester. blitz.io is really easy to get started with and cheap.
 						ANTS profiler and dotTrace can profile .net code.
 
-						It's important to know where you are before you do anything. 
+						It's important to know where you are before you do anything.
+						Load test with mimic your user behaviour.
+
 					</aside>
 				</section>
 				<section>
@@ -120,40 +122,58 @@
 						<li class="fragment">Find bottleneck, remove, measure, repeat</li>
 					</ul>
 					<aside class="notes">
-
+						We were able to do many iterations per day. 5 minute release cycle made it a blast.
 					</aside>
 				</section>
 				<section>
-					<h2>Test in production</h2>
+					<h2>Use production data</h2>
 					<ul>
 						<li class="fragment">Real data is the best data.</li>
-						<li class="fragment">Test on a subset if possible</li>
+						<li class="fragment">Roll out changes to a subset if possible</li>
 						<li class="fragment">Compare resources usage with baseline</li>
 						<li class="fragment">Be ready to roll back</li>
 					</ul>
 					<aside class="notes">
-
-					</aside>
-				</section>
-				<section>
-					<h2>Scaling with hardware</h2>
-					<ul>
-						<li class="fragment">Developers are expensive, hardware is cheap (Up to a point)</li>
-						<li class="fragment">Needs enabling</li>
-					</ul>
-					<aside class="notes">
-						What you want is to be able to just add another box where to handle more users.
+						We had no staging env, so we did load testing in off hours, and constant measuring.
 					</aside>
 				</section>
 				<section>
 					<h2>Scaling up or out?</h2>
-					<ul>
-						<li class="fragment">Exponential vs linear cost growth</li>
-						<li class="fragment">License costs makes this more complex</li>
-						<li class="fragment">Out is more complex</li>
-					</ul>
+					<div style="display:inline">
+						<img src="superdome.jpg" height="400px"> 
+						vs
+						<img src="mini.jpg" height="300px">
+					</div>
 					<aside class="notes">
 						Scaling up is usually good up to a point. Out requires more infrastructure, laod balancing, harder deployment, more servers to maintain. Scaling up requires throwing away your old hardware and buying new. Out will just add to existing. 
+					</aside>
+				</section>
+				<section>
+					<h2>Scaling with bigger hardware</h2>
+					<ul>
+						<li class="fragment">Hardware is a quick solution</li>
+						<li class="fragment">Redesigning software is not...</li>
+					</ul>
+					<aside class="notes">
+						Hardware like fusion IO-disk can be really smart in high write scenarios.
+					</aside>
+				</section>
+				<section>
+					<h2>Scaling with more hardware</h2>
+					<ul>
+						<li class="fragment">Smaller steps</li>
+						<li class="fragment">More infrastructure required</li>
+						<li class="fragment">License costs makes this more complex</li>
+					</ul>
+					<aside class="notes">
+						Hardware like fusion IO-disk can be really smart in high write scenarios.
+					</aside>
+				</section>
+				<section>
+					<h2>Different cost profiles</h2>
+					<img src="cost.jpg" height="400px">
+					<aside class="notes">
+						Hardware like fusion IO-disk can be really smart in high write scenarios.
 					</aside>
 				</section>
 				<section>
@@ -164,7 +184,7 @@
 						<li class="fragment">Sharding and clustering</li>
 					</ul>
 					<aside class="notes">
-
+						Don't do it unless you really have to. The one place where scaling up usually is the right thing to do.
 					</aside>
 				</section>				
 				<section>
@@ -175,7 +195,7 @@
 						<li class="fragment">Reverse proxy</li>
 					</ul>
 					<aside class="notes">
-						Hardware load balancers are really just software balancer with an expencive price and a warranty. Lot's of good open source balancers available.(Varnish, nginx, HAProxy) Requires some linux/unix knowledge and getting your hands dirty.
+						Hardware load balancers are really just software balancer with an expencive price and a warranty. Lot's of good open source balancers available. (Varnish, nginx, HAProxy) Requires some linux/unix knowledge and getting your hands dirty. Really flexible.
 					</aside>
 				</section>
 				<section>
@@ -183,6 +203,7 @@
 					<ul>
 						<li class="fragment">Works well with traffic bursts</li>
 						<li class="fragment">Some resources are hard to provision</li>
+						<li class="fragment">Easy to provision cpu and ram</li>
 						<li class="fragment">May need to port code</li>
 						<li class="fragment">More expensive side by side with regular hosting</li>
 					</ul>
@@ -193,6 +214,7 @@
 				<section>
 					<h2>Fixing your code</h2>
 					<aside class="notes">
+						Take the quick fixes first, and see where it gets you.
 					</aside>
 				</section>
 				<section>
@@ -237,10 +259,10 @@
 				<section>
 					<h2>CDN</h2>
 					<ul>
-						<li class="fragment">Don't host your static resources on your expensive app server</li>
+						<li class="fragment">Don't host your static resources on your app server</li>
 					</ul>
 					<aside class="notes">
-						Good for user experience as well. 
+						Good for user experience as well. Save yourself the trouble of serving lots of files. CDNs does it better.
 					</aside>
 				</section>
 				<section>
@@ -253,21 +275,24 @@
 						<li class="fragment">Versioning makes caching easier</li>
 					</ul>
 					<aside class="notes">
+						Remember caching. Bundle things that have the same caching rules.
 					</aside>
 				</section>
 				<section>
 					<h2>Internal cache</h2>
 					<ul>
 						<li class="fragment">.NET 4.0 brought MemoryCache</li>
-						<li class="fragment">Distributed caching (Memchached and redis)</li>
-						<li class="fragment">Layer 7 load balancing</li>
+						<li class="fragment">Distributed caching (AppFabric Caching, Memchached and redis)</li>
 					</ul>
 					<aside class="notes">
+						Memory caching with layer 7 load balancing, enables you to cache different things on different web frontends.
+						Cheap => Use Linux and Memcached or redis.
 					</aside>
 				</section>
 				<section>
 					<h2>Memorycache</h2>
 					<pre><code data-trim contenteditable class="cs">
+using System.Runtime.Caching;
 
 var cache = MemoryCache.Default;
 var policyFactory = () => new CacheItemPolicy{SlidingExpiration = new TimeSpan(0, 0, 15, 0)};
@@ -281,7 +306,6 @@ var cached = cache.Contains(person.Id);
 var person2 = cache.Get(person.Id);
 
 cache.Remove(person.Id);
-
 					</code></pre>
 					<aside class="notes">
 						A lot of other features. Will make sure your server don't collapse because of limits.
@@ -306,6 +330,8 @@ cache.Remove(person.Id);
 						<li class="fragment">Use your database's strengths <br>and be aware of it's weaknesses</li>
 					</ul>
 					<aside class="notes">
+						Databases are not just key value stores so use it. Implementations of DDD has forgot this.
+
 					</aside>
 				</section>
 				<section>
