@@ -56,7 +56,7 @@
 					</p>
 					<aside class="notes">
 						Web developer, based in Oslo, working for webstep as a consultant.
-						Contact me, and please give me feedback on the talk
+						Contact me, and please give me feedback on the talk.
 					</aside>
 				</section>
 				<section>
@@ -118,21 +118,22 @@
 
 						It's important to know where you are before you do anything.
 						Load test with mimic your user behaviour.
-
+						Profiling gave showed us, right away one simple problem, that doubled the number of requests right away.
 					</aside>
 				</section>
 				<section>
 					<h3>NewRelic web transaction view.</h3>
 					<img src="webtransactions.png">
 					<aside class="notes">
-						
+						google analytics will give you some of the same functionality, but can't see the methods behind the urls.
 					</aside>
 				</section>
 				<section>
 					<h3>Blitz.io</h3>
 					<img src="blitzio.png">
 					<aside class="notes">
-						Basically curl on the web. ginder, apache bench, and a lot of other tools exist as well.
+						Basically curl on the web. 
+						ginder, apache bench, and a lot of other tools exist as well.
 					</aside>
 				</section>
 				<section>
@@ -228,7 +229,7 @@
 						<li class="fragment">Some resources are hard to provision</li>
 						<li class="fragment">Easy to provision cpu and ram</li>
 						<li class="fragment">May need to port code</li>
-						<li class="fragment">More expensive side by side with regular hosting</li>
+						<li class="fragment">More expensive side by side with buying your own</li>
 					</ul>
 					<aside class="notes">
 						IO is not adjustable. Data stores are decided. Tried Azure, but didn't work for us, as we did not have time to rewrite to a different database, and couldn't get good enough write performance.
@@ -394,7 +395,7 @@ cache.Remove(person.Id);
 				<section>
 					<h2>Put state on the client</h2>
 					<ul>
-						<li class="fragment">Avoid session data if possible</li>
+						<li class="fragment">Avoid the Session object if possible</li>
 						<li class="fragment">If session is needed, put it in a cache.</li>
 					</ul>
 					<aside class="notes">
@@ -409,7 +410,6 @@ cache.Remove(person.Id);
 						<li class="fragment">Handles sudden bursts in traffic better</li>
 					<aside class="notes">
 						Things that involve external and non reliable web services is nice to do in the background, but requires idempotency.
-						No time to bring in a big messaging archtecture, so we 
 					</aside>
 				</section>
 				<section>
@@ -461,6 +461,7 @@ public void CacheItemRemoved(string k, object v, CacheItemRemovedReason r)
 
 					</ul>
 					<aside class="notes">
+						Stop when good enough. Keep monitoring.
 					</aside>
 				</section>
 				<section>
