@@ -245,11 +245,12 @@
 					<h2>Http cache</h2>
 					<ul>
 						<li class="fragment">Learn HTTP and it's caching mechanisms</li>
-						<li class="fragment">Long max-age (1 year)</li>
+						<li class="fragment">Long expiration date (1 year)</li>
 						<li class="fragment">Change url when the resource changes</li>
 						<li class="fragment">Use your load balancer as reverse proxy</li>
 					</ul>
 					<aside class="notes">
+						Let the users keep the data and not you.
 					</aside>
 				</section>
 				<section>
@@ -339,7 +340,7 @@ cache.Remove(person.Id);
 				<section>
 					<h2>Choosing databases</h2>
 					<ul>
-						<li class="fragment">Different databases have differnet sweet spots</li>
+						<li class="fragment">Different databases have different sweet spots</li>
 						<li class="fragment">Mix and match in the same application</li>
 						<li class="fragment">Choose database based on usage, not old habits</li>
 					</ul>
@@ -386,7 +387,7 @@ cache.Remove(person.Id);
 					</aside>
 				</section>
 				<section>
-					<h3>Caching behavior for WebRequest and derived classes.</h3>
+					<h3>Caching behavior for WebRequest and derived classes</h3>
 					<img src="cache.png">
 					<aside class="notes">
 						A gem from the .NET framework
@@ -396,16 +397,17 @@ cache.Remove(person.Id);
 					<h2>Put state on the client</h2>
 					<ul>
 						<li class="fragment">Avoid the Session object if possible</li>
-						<li class="fragment">If session is needed, put it in a cache.</li>
+						<li class="fragment">If session state is needed, put it in a cache</li>
 					</ul>
 					<aside class="notes">
 						Server sessions become a big problem when theres enough users. Even a small memory footprint will give problems when there is many users.
+						I haven't had to put anything in session state after I started thinking about this.
 					</aside>
 				</section>
 				<section>
 					<h2>Do slow work in the background</h2>
 					<ul>
-						<li class="fragment">Not all processes have the same priority</li>
+						<li class="fragment">Everything does not have the same priority</li>
 						<li class="fragment">Synchronicity can be faked in the UI layer</li>
 						<li class="fragment">Handles sudden bursts in traffic better</li>
 					<aside class="notes">
