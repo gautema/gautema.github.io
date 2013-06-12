@@ -63,7 +63,9 @@
 					<img src="multi.png">
 					<aside class="notes">
 						Got the idea for this talk last november, when two of the systems I was working on started having problems at the same time. Two very different systems, and not the same problems at all. 
-						Had a custom CMS, which had about 50 req/s and 1000 users at peak hours. And a new system for taking student math exams. Made as a prototype, and suddenly sold to 150 000 users that would take the exam during a two week period. Required about 1000 write req/s plus added requests to CMS. Currently running on 1 virtual machine with 2 cores and 4 gb ram. Two weeks to go from 20 req/s to 1000 req/s
+						Had a self made CMS, which had about 50 req/s and 1000 users at peak hours. 
+
+						And a new system for taking student math exams. Made as a prototype, and suddenly sold to 150 000 users that would take the exam during a two week period. Required about 1000 write req/s plus added requests to CMS. Currently running on 1 virtual machine with 2 cores and 4 gb ram. Two weeks to go from 20 req/s to 1000 req/s
 					</aside>
 				</section>
 				<section>
@@ -72,7 +74,8 @@
 						Scalability is the ability of a system, network, or process to handle a growing amount of work in a capable manner or its ability to be enlarged to accommodate that growth.
 					</p>
 					<aside class="notes">
-						Not about speed or performance. A scalable system is usually performant, not the other way around.
+						Not about speed or performance, availability, some technology. 
+						A scalable system is usually performant, not the other way around.
 					</aside>
 				</section>
 				<section>
@@ -81,6 +84,9 @@
 						Scaling will always have a cost<br/>
 						Speed is a feature, and it requires attention
 					</p>
+					<aside class="notes">
+						The trick is to use the time and money in the right places.
+					</aside>
 				</section>
 				<section>
 					<h2>Where to start?</h2>
@@ -185,7 +191,7 @@
 						<li class="fragment">Sharding and clustering</li>
 					</ul>
 					<aside class="notes">
-						Don't go horisontal unless you really have to. The one place where scaling up usually is the right thing to do.
+						Don't go horisontal unless you really have to. The one place where scaling up usually is the right thing to do. Unless you are twitter or facebook you probably don't want to go there.
 					</aside>
 				</section>				
 				<section>
@@ -196,7 +202,7 @@
 						<li class="fragment">Reverse proxy</li>
 					</ul>
 					<aside class="notes">
-						Hardware load balancers are really just software balancer with an expencive price and a warranty. Lot's of good open source balancers available. (Varnish, nginx, HAProxy) Requires some linux/unix knowledge and getting your hands dirty. Really flexible.
+						Hardware load balancers are really just software balancer with an expencive price and a warranty. Lot's of good open source balancers available. (Varnish, nginx, HAProxy) Requires some linux/unix knowledge and getting your hands dirty. Really flexible.A lot of hosting providers already have a load balancer available, that you can piggyback on.
 					</aside>
 				</section>
 				<section>
@@ -345,8 +351,10 @@ cache.Remove(person.Id);
 						<li class="fragment">In read heavy use cases, make it cheap to read</li>
 						<li class="fragment">In write heavy use cases, make it cheap to write</li>
 						<li class="fragment">Mix and match architectures in your application</li>
+						<li class="fragment">Forget about normalization</li>
 					</ul>
 					<aside class="notes">
+						Write and read from as few rows/documents as possible.
 					</aside>
 				</section>
 				<section>
@@ -363,11 +371,11 @@ cache.Remove(person.Id);
 				<section>
 					<h2>Put state on the client</h2>
 					<ul>
-						<li class="fragment">Avoid sticky sessions</li>
-						<li class="fragment">No memory used per user</li>
+						<li class="fragment">Avoid session data if possible</li>
+						<li class="fragment">If session is needed, put it in a cache.</li>
 					</ul>
 					<aside class="notes">
-						Server sessions become a big problem when theres enough users. Even a small memory footprint will give problems when theres many users.
+						Server sessions become a big problem when theres enough users. Even a small memory footprint will give problems when there is many users.
 					</aside>
 				</section>
 				<section>
@@ -378,6 +386,37 @@ cache.Remove(person.Id);
 						<li class="fragment">Handles sudden bursts in traffic better</li>
 					<aside class="notes">
 						Things that involve external and non reliable web services is nice to do in the background, but requires idempotency.
+						No time to bring in a big messaging archtecture, so we 
+					</aside>
+				</section>
+				<section>
+					<h2>Easy Background Tasks in ASP.NET</h2>
+					<pre height="400px"><code data-trim contenteditable class="cs">
+private static CacheItemRemovedCallback OnCacheRemove = null;
+
+protected void Application_Start(object sender, EventArgs e)
+{
+    AddTask("DoStuff", 60);
+}
+
+private void AddTask(string name, int seconds)
+{
+    OnCacheRemove = new CacheItemRemovedCallback(CacheItemRemoved);
+    HttpRuntime.Cache.Insert(name, seconds, null, 
+        DateTime.Now.AddSeconds(seconds), Cache.NoSlidingExpiration,
+        CacheItemPriority.NotRemovable, OnCacheRemove);
+}
+
+public void CacheItemRemoved(string k, object v, CacheItemRemovedReason r)
+{
+    // do stuff here if it matches our taskname, like WebRequest
+    // re-add our task so it recurs
+    AddTask(k, Convert.ToInt32(v));
+}
+					</code></pre>
+					<p>http://blog.stackoverflow.com/2008/07/easy-background-tasks-in-aspnet/</p>
+					<aside class="notes">
+						No time to bring in a worker process or a messaging system, so we used this as a temporary solution. But it worked. 
 					</aside>
 				</section>
 				<section>
