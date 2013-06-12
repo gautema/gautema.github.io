@@ -89,6 +89,17 @@
 					</aside>
 				</section>
 				<section>
+					<h2>Avoid premature optimisation <br>and focus on macro level</h2>
+					<ul>
+						<li class="fragment">Focus on the operations that takes the most accumulated resources</li>
+						<li class="fragment">Know your domain and your users. Optimise for actual usage</li>
+						<li class="fragment">Know the code and where it hurts. Don't guess!</li>
+					</ul>
+					<aside class="notes">
+
+					</aside>
+				</section>
+				<section>
 					<h2>Where to start?</h2>
 				</section>
 				<section>
@@ -120,18 +131,7 @@
 					<h3>Blitz.io</h3>
 					<img src="blitzio.png">
 					<aside class="notes">
-						Basically curl on the web.
-					</aside>
-				</section>
-				<section>
-					<h2>Avoid premature optimisation <br>and focus on macro level</h2>
-					<ul>
-						<li class="fragment">Focus on the operations that takes the most accumulated resources</li>
-						<li class="fragment">Know your domain and your users. Optimise for actual usage</li>
-						<li class="fragment">Know the code and where it hurts. Don't guess!</li>
-					</ul>
-					<aside class="notes">
-
+						Basically curl on the web. ginder, apache bench, and a lot of other tools exist as well.
 					</aside>
 				</section>
 				<section>
@@ -244,7 +244,7 @@
 						<li class="fragment">Learn HTTP and it's caching mechanisms</li>
 						<li class="fragment">Long max-age (1 year)</li>
 						<li class="fragment">Change url when the resource changes</li>
-						<li class="fragment">Use your load balancer to cache</li>
+						<li class="fragment">Use your load balancer as reverse proxy</li>
 					</ul>
 					<aside class="notes">
 					</aside>
