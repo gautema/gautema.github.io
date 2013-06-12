@@ -110,6 +110,20 @@
 					</aside>
 				</section>
 				<section>
+					<h3>NewRelic web transaction view.</h3>
+					<img src="webtransactions.png">
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
+					<h3>Blitz.io</h3>
+					<img src="blitzio.png">
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
 					<h2>Avoid premature optimisation <br>and focus on macro level</h2>
 					<ul>
 						<li class="fragment">Focus on the operations that takes the most accumulated resources</li>
@@ -362,10 +376,17 @@ cache.Remove(person.Id);
 					<ul>
 						<li class="fragment">Don't pretend memory calls and network calls are the same</li>
 						<li class="fragment">Separate request based on caching</li>
-						<li class="fragment">Leverage HTTP cache inside your application aswell.<br/> .NET default behaviour is bypassing cache</li>
+						<li class="fragment">Leverage HTTP cache inside your application as well.<br/> .NET default behaviour is bypassing cache</li>
 					</ul>
 					<aside class="notes">
 						Remember .NET uses IE's caching, so upgrade IE for better caching.
+					</aside>
+				</section>
+				<section>
+					<h3>Caching behavior for WebRequest and derived classes.</h3>
+					<img src="cache.png">
+					<aside class="notes">
+						A gem from the .NET framework
 					</aside>
 				</section>
 				<section>
