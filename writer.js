@@ -63,8 +63,8 @@ pre em:not(.comment) { font-style: normal; }
  */
 <div><img src="logo.svg" /></div>
 img{
-  width: 640px;
   max-width: 100%;
+  width: 640px;
 }
 
 
@@ -83,8 +83,8 @@ img{
 
 h1, p, div {
   margin: auto;
-  width: 640px;
   max-width: 85%;
+  width: 640px;
   background-color: #000; opacity: 0.8;
   text-shadow: #000 1px 1px 1px;
   padding: 0 20px;
