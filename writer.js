@@ -37,6 +37,7 @@ pre {
   box-sizing: border-box;
   border-radius: 3px;
   box-shadow: 0px 4px 0px 2px rgba(0,0,0,0.1);
+  z-index: 10;
 }
 
 /*
@@ -63,10 +64,10 @@ pre em:not(.comment) { font-style: normal; }
  */
 <div><img src="logo.svg" /></div>
 img{
-  max-width: 100%;
-  width: 640px;
+  display: block;
+  max-width: 100%; width: 400px;
+  margin: auto;
 }
-
 
 /*
  * Some info on how to contact me.
